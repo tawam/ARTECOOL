@@ -1,0 +1,268 @@
+{
+  "version": "1.6.0",
+  "release": "07_v1.6_ARTECOOL",
+  "createdAt": "2026-11-12T23:04:25.569Z",
+  "status": "Prototype; not published; human review pending",
+  "files": [
+    {
+      "file": "index.html",
+      "bytes": 30287,
+      "sha256": "51e35e1b2c5503a892bcf7eb16035f1fa8cab793ec5b7c6d508ea5a12aada8c8"
+    },
+    {
+      "file": "styles.css",
+      "bytes": 25475,
+      "sha256": "b6db19e6c0d396df512fef3bf7ff9707340403e6581e9fa59c8ba971f18bd8cc"
+    },
+    {
+      "file": "app.js",
+      "bytes": 8799,
+      "sha256": "9381a34a101ec495af4e5fef922358fccd47238b19f5f0b36aa37e3c1da11bec"
+    },
+    {
+      "file": "plastic.css",
+      "bytes": 3107,
+      "sha256": "71a305722ac2cb2c6d31ab670eda25639ae50f945d16a5d32f6a3064d2256777"
+    },
+    {
+      "file": "plastic-loader.js",
+      "bytes": 1906,
+      "sha256": "5d0b3708ea1eec8a6a704388f01ff0ddc79ee19d784f18d9a43a9ca897c37065"
+    },
+    {
+      "file": "plastic-scene.js",
+      "bytes": 3377,
+      "sha256": "8f4e864efb3f4f8f47f398c88e36a40e731b31d9fd8e2f7f2605e4c2d4d1c197"
+    },
+    {
+      "file": "foreground-scene.js",
+      "bytes": 10942,
+      "sha256": "dc1fc9c522ce088b3b0cc56fc929816abf5954df7b78890d2b78f41b61332f3c"
+    },
+    {
+      "file": "favicon.svg",
+      "bytes": 160,
+      "sha256": "3040e7b2d051c8c437b0b57c1a25bfe927fade1371f877803c1e7e5442461d22"
+    },
+    {
+      "file": "assets/artists/amestica.webp",
+      "bytes": 57218,
+      "sha256": "1eb240d049c13dba12d7e3a46da76fef8803c76a6d9fc118a6c817fec4d8baf7"
+    },
+    {
+      "file": "assets/artists/artestenciva.webp",
+      "bytes": 85794,
+      "sha256": "71a34f3f7d8949279819241f6e6906714a5e826ba0568be8b702d0fc7604fb46"
+    },
+    {
+      "file": "assets/artists/babs.webp",
+      "bytes": 531366,
+      "sha256": "fded41378133330e8b82a360ca9971c4997236929edf24625f21a98401d41521"
+    },
+    {
+      "file": "assets/artists/baby-babi.webp",
+      "bytes": 68610,
+      "sha256": "467ff01cf7e6e09a253f4d6b3b4aa9eb1315317cfa20885fb3516b257db4dda1"
+    },
+    {
+      "file": "assets/artists/cassol.webp",
+      "bytes": 41022,
+      "sha256": "1117fead66c86cd2cc57762231632c201fa93ca3a65c775cded819c656643564"
+    },
+    {
+      "file": "assets/artists/cleo-small.webp",
+      "bytes": 68820,
+      "sha256": "3f25052422b8ee46b7f49e2f223331a880843ff0c98a54478d864a61f985cc3b"
+    },
+    {
+      "file": "assets/artists/cleo.webp",
+      "bytes": 234412,
+      "sha256": "891cf96e37ab619375a23a432f9e47771648e2aba88f7f86c0cf8c685dfff8b0"
+    },
+    {
+      "file": "assets/artists/cris-pagnoncelli.webp",
+      "bytes": 226184,
+      "sha256": "792d9fdacaba953466e58b6e26f8b783ee2d0856492e9a28239cad51c16e505d"
+    },
+    {
+      "file": "assets/artists/lipe-soul-black.webp",
+      "bytes": 90626,
+      "sha256": "a1b98d5f9d67108a222d907690d96210b35029c10e1aa220ab10043590d0d920"
+    },
+    {
+      "file": "assets/artists/marcella-calado.webp",
+      "bytes": 32788,
+      "sha256": "ba032335beec32332af3bbd3164a9ac02e19feab8d4a618c4f3dd6d50d7903f1"
+    },
+    {
+      "file": "assets/artists/menord.webp",
+      "bytes": 31872,
+      "sha256": "de5be203c6c0e5ee26cdf6b0efab94d730a4739669b0b87f1b13abdb8b8be690"
+    },
+    {
+      "file": "assets/artists/micah.webp",
+      "bytes": 42238,
+      "sha256": "cc5dab6bb8b32534c12a85f2efc17ff85e18db43e02771aec384cec8e554fdcc"
+    },
+    {
+      "file": "assets/artists/nathy-picoli.webp",
+      "bytes": 134068,
+      "sha256": "7c806db040e688095dd77ad1fc55803fff37b4e259fcdb2f23d5518f00409549"
+    },
+    {
+      "file": "assets/artists/pedro-afara-small.webp",
+      "bytes": 64104,
+      "sha256": "2f57b3ec438537ec14939811773292c74311f4e662c949489cbda9d3f4da0983"
+    },
+    {
+      "file": "assets/artists/pedro-afara.webp",
+      "bytes": 345034,
+      "sha256": "e42f66d5aff7f56fac6cd3f1dea2d9cbe5bc15b2fe9c277c3114acca24670585"
+    },
+    {
+      "file": "assets/artists/prosa-small.webp",
+      "bytes": 43826,
+      "sha256": "3cb113dd931c8dcc654f5bbbb6141a11d62ba2e3dbeb77d8174dfc2ca0e32396"
+    },
+    {
+      "file": "assets/artists/prosa.webp",
+      "bytes": 112842,
+      "sha256": "a1837d97f3f9cfc31b298baf140ab09c31d68392036dc5934dd7dfa2f49cf4e9"
+    },
+    {
+      "file": "assets/artists/sereia-kozmica-small.webp",
+      "bytes": 57604,
+      "sha256": "df4fd6d2bb2265986bcf439222b0a87184b316d0f830465afa32ce1e5c6a2f4c"
+    },
+    {
+      "file": "assets/artists/sereia-kozmica.webp",
+      "bytes": 336616,
+      "sha256": "07cdd1843957be1cfc827f5ddf2ffb598e9a881b303301b099988e8809be23ff"
+    },
+    {
+      "file": "assets/artists/siamese.webp",
+      "bytes": 241318,
+      "sha256": "84d78bd5de86e606ab14da5281bedc0b282d104a736f3573a963230310ac47e6"
+    },
+    {
+      "file": "assets/artists/titcho.webp",
+      "bytes": 405320,
+      "sha256": "16b9ab112a02d5adfbe4d86d6bd09ffd84af975cd8e4bcca7a3596b73d00fd28"
+    },
+    {
+      "file": "assets/artists/wes-ventura.webp",
+      "bytes": 252582,
+      "sha256": "bb6385507c2e9c3c63120e22bffea3ef9219e745d7fa4678505e4809cbd3db48"
+    },
+    {
+      "file": "assets/brand/institucional.png",
+      "bytes": 20043,
+      "sha256": "d8e066e5a9b39abb709cb174382e1d234d29678093c1a99a3ed56a7d3211e85f"
+    },
+    {
+      "file": "assets/brand/logo-ink.svg",
+      "bytes": 2765,
+      "sha256": "c2a16699aa12045ddf5c192e07d2fa53e65526a49b398b05a0af5c708f06f0e1"
+    },
+    {
+      "file": "assets/brand/logo-white.svg",
+      "bytes": 2765,
+      "sha256": "677535eec05abe5b5a40012ded9e8b8d8ce0717b771a21524e73c786214066fe"
+    },
+    {
+      "file": "assets/fonts/Manrope-OFL.txt",
+      "bytes": 4387,
+      "sha256": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b"
+    },
+    {
+      "file": "assets/fonts/Manrope.ttf",
+      "bytes": 164700,
+      "sha256": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6"
+    },
+    {
+      "file": "assets/fonts/RocGrotesk-Bold.otf",
+      "bytes": 64756,
+      "sha256": "eb39c1b627d1e8f95ddb28f49a92869c72442a234bbaa3e09f6aa2bede06e673"
+    },
+    {
+      "file": "assets/fonts/RocGrotesk-license.html",
+      "bytes": 5445,
+      "sha256": "78e624c1cb4509094cc2a13f6023f4eaaf2219e4a8403524942eca7f5f2b0b92"
+    },
+    {
+      "file": "assets/fonts/RocGrotesk-Medium.otf",
+      "bytes": 64544,
+      "sha256": "1d971c6d857da8f83fdaf1fa990138502254e8d9401a633b4e6683d729cbbe12"
+    },
+    {
+      "file": "assets/fonts/RocGrotesk-Regular.otf",
+      "bytes": 58500,
+      "sha256": "761a32bfd27a74fa9ba813008ffc23a45a19ff753413f636998805aa12043a35"
+    },
+    {
+      "file": "assets/fonts/RocGroteskWide-Bold.otf",
+      "bytes": 64372,
+      "sha256": "94c066e3604332d5e9e99f8aac838d5ef77e0d227f850c4e5f29cd9782be707c"
+    },
+    {
+      "file": "assets/fonts/RocGroteskWide-ExtraLight.otf",
+      "bytes": 60104,
+      "sha256": "280b729e255e40f76138de10b12480f4b39e3852108e142c2b17e1dd4480f4e2"
+    },
+    {
+      "file": "assets/fonts/RocGroteskWide-Light.otf",
+      "bytes": 60128,
+      "sha256": "3dee7a7de2d236f786f433b4ad61c0e6393eee5e081d9a4fa28784ecfe2fbc7d"
+    },
+    {
+      "file": "assets/fonts/RocGroteskWide-Medium.otf",
+      "bytes": 65144,
+      "sha256": "04323b41592b09281136e9b852ed072a6469fd6a99c3b4e0e61752618d35800d"
+    },
+    {
+      "file": "assets/fonts/RocGroteskWide-Regular.otf",
+      "bytes": 59808,
+      "sha256": "52a69b7b6538e998c8261029fb34d718a2de852191a106fe11dc80851e0f326c"
+    },
+    {
+      "file": "assets/fonts/Unbounded-OFL.txt",
+      "bytes": 4392,
+      "sha256": "31e5d4e83955e7103c34570dd49b0570ef490800bd65b42923c0dd02445263b3"
+    },
+    {
+      "file": "assets/fonts/Unbounded.ttf",
+      "bytes": 778272,
+      "sha256": "323b511be380c8d474ef030686b71aedde501f8d9cd46da558b7c40454372c3f"
+    },
+    {
+      "file": "assets/posters/intervencoes.png",
+      "bytes": 492044,
+      "sha256": "c4bab8218cd5d80bc02db0223beb65e21f17a0a291aeb36bcbea872c525bcd34"
+    },
+    {
+      "file": "assets/posters/opera.png",
+      "bytes": 667110,
+      "sha256": "640f29c1608fc532edf586b84f5bd3368bbf313c4eb6a008ae9316772b48060b"
+    },
+    {
+      "file": "assets/posters/royalty-programacao.png",
+      "bytes": 786836,
+      "sha256": "ef067b1d9bc9c4ea06d2379d6aeec7d4ac44ae9e9e1538145a286619b13e0d53"
+    },
+    {
+      "file": "assets/vendor/three/LICENSE.txt",
+      "bytes": 1081,
+      "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc"
+    },
+    {
+      "file": "assets/vendor/three/three.core.js",
+      "bytes": 1458113,
+      "sha256": "9edde002b066a9a05676a6127f67735b62baf399bdea529f2f7e31657da769e6"
+    },
+    {
+      "file": "assets/vendor/three/three.module.js",
+      "bytes": 662772,
+      "sha256": "9052042d676cb0fdc1ddfefe193053f34b7ac0513a616fdac4535d49987812ea"
+    }
+  ]
+}
