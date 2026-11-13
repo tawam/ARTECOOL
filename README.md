@@ -1,10 +1,10 @@
-# ARTECOOL — protótipo web v1.8
+# ARTECOOL — protótipo web v1.9
 
 Edição 2026. Site estático com HTML, CSS e JavaScript. Sirva esta pasta por HTTP para revisar as interações. Não é necessário instalar dependências ou executar build para hospedar. Recursos usam caminhos relativos e foram verificados sob o prefixo /artecool/.
 
 ## GitHub Pages
 
-Envie o conteúdo desta pasta à raiz do repositório e configure Pages para a raiz da branch desejada. .nojekyll está incluído. Publicação não realizada; noindex/nofollow preservados enquanto a versão é revisada.
+Envie o conteúdo desta pasta à raiz do repositório e configure Pages para a raiz da branch desejada. .nojekyll está incluído. O estado da publicação é acompanhado no projeto; noindex/nofollow permanecem nesta distribuição.
 
 ## Conteúdo confirmado
 
@@ -16,12 +16,12 @@ Logo original em curvas. Roc Grotesk Wide nos títulos e Roc Grotesk na leitura,
 
 Rodapé com Lei Rouanet, Mili, Sanepar, Ministério da Cultura e Governo Federal. Mobile reorganiza os grupos originais em tamanho maior.
 
-index.html é a página; styles.css contém o sistema visual; app.js contém interações; mosaic.js alterna artistas e formas da abertura; plastic-loader.js, foreground-scene.js e plastic-scene.js carregam e executam a peça 3D elástica em primeiro plano, com estilo em plastic.css; assets reúne os recursos usados. A peça 3D, com50% da escala inicial e trajeto nos espaços livres, atravessa o conteúdo em uma camada fixa e usa Three.js 0.186.1/MIT, copiado localmente com licença em assets/vendor/three/LICENSE.txt, sem CDN. A peça principal mantém presença contínua, sem fade de desvio; as companheiras entram e saem com pop elástico de escala. No final, diminui e estaciona girando na faixa superior do rodapé. Inclui ativação/desativação, preferência local persistente e alternativa vetorial para mobile e falhas de WebGL. Redução de movimento é respeitada por padrão; o visitante pode ativar explicitamente somente esta experiência. Original do acervo e documentação interna não estão neste pacote. version-manifest.json registra hashes da versão.
+index.html é a página; styles.css contém o sistema visual; app.js contém interações; mosaic.js alterna artistas e formas da abertura; plastic-loader.js, foreground-scene.js e plastic-scene.js carregam e executam a peça 3D elástica em primeiro plano, com estilo em plastic.css; assets reúne os recursos usados. A peça 3D, com50% da escala inicial e trajeto nos espaços livres, atravessa o conteúdo em uma camada fixa e usa Three.js 0.186.1/MIT, copiado localmente com licença em assets/vendor/three/LICENSE.txt, sem CDN. A peça principal mantém presença contínua, sem fade de desvio; as companheiras entram e saem com pop elástico de escala. As transformações seguem as seções, sem depender da altura acumulada da página. O grupo de destaque fica contido na seção. No final, o disco amarelo diminui e estaciona ao lado do controle no rodapé, com movimento lento. Inclui ativação/desativação, preferência local persistente e alternativa vetorial para mobile e falhas de WebGL. Redução de movimento é respeitada por padrão; o visitante pode ativar explicitamente somente esta experiência. Original do acervo e documentação interna não estão neste pacote. version-manifest.json registra hashes da versão.
 
 ## Revisões de conteúdo e mosaico
 
 Ordem Royalty Café → Intervenções urbanas → Ópera de Arame. Galeria alfabética com24 entradas e24 retratos; DJ Spena usa a foto do perfil oficial indicada por Taw. Babs tem destaque como DJ residente. Intervenções concentram os três artistas e os cinco bairros, sem inventar correspondências individuais. Lâminas redundantes removidas.
 
-Mosaico: dois retratos alternam com formas nos seis módulos, com nomes, datas e locais. Pausa/retorno por botão, suspensão fora da abertura e respeito ao movimento reduzido. Imagens decodificadas antes da troca; falha conserva o conteúdo anterior.
+Mosaico: fotos sorteadas a cada2,5s com fade suave; alternam no mesmo módulo ou em outro. Os seis blocos se reorganizam a cada quatro trocas, preservando nomes, datas e locais. A preferência de pausa é persistente; em movimento reduzido, o botão permite ativar somente os fades. Pausa/retorno por botão, suspensão fora da abertura e respeito ao movimento reduzido. Imagens decodificadas antes da troca; falha conserva o conteúdo anterior.
 
-Os arquivos desta versão ainda precisam de revisão final. A publicação anterior relatada por Taw não equivale à publicação desta rodada.
+A autorização de envio por Taw não resolve as informações ainda pendentes do evento.

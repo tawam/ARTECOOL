@@ -1,28 +1,28 @@
 {
-  "version": "1.8.0",
-  "release": "09_v1.8_ARTECOOL",
-  "createdAt": "2026-11-13T03:46:01.935Z",
-  "status": "Prototype; not published; human review pending",
+  "version": "1.9.0",
+  "release": "10_v1.9_ARTECOOL",
+  "createdAt": "2026-11-13T04:33:41.542Z",
+  "status": "Prepared locally; publication tracked separately",
   "files": [
     {
       "file": "index.html",
       "bytes": 34491,
-      "sha256": "591cf876f86bbb0c9e59e4bf152440ce6ac5b911916309d37aeab2a50a0c55e0"
+      "sha256": "fa8ae27280b6892600ebaf2baf61594a3784dcf54cc049a2aa120c503f1d9500"
     },
     {
       "file": "styles.css",
-      "bytes": 29724,
-      "sha256": "e33f30a5073dbccbc02b706051b163392db91691ebbba76bdf9e8573e6fe8371"
+      "bytes": 29926,
+      "sha256": "7855a9598b2681441960973569ee6459a26d536e2d93790669dce1c32f8a1b74"
     },
     {
       "file": "app.js",
-      "bytes": 9511,
-      "sha256": "175b1af7e9b41769b634c6b83601945a331c55b3c6b42681f77d9f558965d22b"
+      "bytes": 9660,
+      "sha256": "04e251e5c5289534bd96434841b71f72687c694e1ee45a17eda60947eae6b365"
     },
     {
       "file": "mosaic.js",
-      "bytes": 4811,
-      "sha256": "48f8ffc387b1e0fb4b7d0fbeb6e4c9a7a73c6be3097c48920ad392cb921bb3eb"
+      "bytes": 6706,
+      "sha256": "c0d77304a50a2c7fcc65318c8698683dc787eeac858de38aa980669da1157d3f"
     },
     {
       "file": "plastic.css",
@@ -32,7 +32,7 @@
     {
       "file": "plastic-loader.js",
       "bytes": 1906,
-      "sha256": "2b14c08fee38bb4b6928ddbf886a6c004fe719ab2bd5c59ca5ec55a991ea6055"
+      "sha256": "d9a953e54cb5602f53c9a6af20718b77a3634f72eb2e430044f1eace2036afac"
     },
     {
       "file": "plastic-scene.js",
@@ -41,8 +41,8 @@
     },
     {
       "file": "foreground-scene.js",
-      "bytes": 10941,
-      "sha256": "385076d4a20cc92ed98d71508c8c0f19c907d37a36cd6b1e9ecfac82c6ef5103"
+      "bytes": 12938,
+      "sha256": "c169e490431bb9432a4b506924acdab1e61883ab5dff67f83101069dbf49e1ef"
     },
     {
       "file": "favicon.svg",

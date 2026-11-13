@@ -39,6 +39,9 @@
 .tile-caption strong{display:block;font-size:12px;font-weight:700;line-height:1.3}
 .tile-caption>span{display:block;margin-top:3px;font-size:11px}
 .mosaic-notes{display:none}
+.hero-text{top:max(35%,var(--hero-copy-top,0px))}
+.hero-text h1{line-height:1.06}
+@media(max-width:760px){.hero-text{top:max(calc(95px + 12vw),var(--hero-copy-top,0px))}.hero-text h1{line-height:1.06}}
 .hero-tools{display:flex;gap:12px;align-items:center}
 .mosaic-toggle{padding:7px 10px;border:1px solid #fff8;border-radius:30px;background:transparent;color:inherit;font-size:11px;min-height:34px;transition:background-color 450ms var(--ease),color 450ms var(--ease)}
 .mosaic-toggle[aria-pressed=true]{background:var(--paper);color:var(--ink)}

@@ -2,6 +2,8 @@ import * as THREE from './assets/vendor/three/three.module.js';
 import {sculpt,knead} from './plastic-scene.js?v=1.6';
 const clamp=(n,a=0,b=1)=>Math.max(a,Math.min(b,n));
 const smooth=n=>n*n*(3-2*n);
+const shapeStops=[0,1,2,0,0,1,2,0];
+const angleMix=(from,to,amount)=>from+Math.atan2(Math.sin(to-from),Math.cos(to-from))*amount;
 const route=[
   ['.morph-story',[.56,.62,190],[.55,.8,210]],
   ['#festival',[.54,.48,220],[.52,.78,220]],
@@ -34,9 +36,9 @@ export function createForegroundScene(root) {
   const companionPop=[{value:0,velocity:0},{value:0,velocity:0}];
   let target={x:0,y:0,size:0},width=1,height=1,header=0,landmark='',isSpotlight=false;
   let active=false,enabled=true,paused=false,frame=0,last=0,frames=0,initialized=false,disposed=false;
-  let progress=0,goal=0,velocity=0,clock=0,frameCost=0,maxCost=0,lostContext=false;
+  let progress=0,goal=0,velocity=0,clock=0,frameCost=0,maxCost=0,lostContext=false,dockBlend=0;
   let obstacles=[],anchorId=-1,clearance=true,currentOverlap=0;
-  const saved=new THREE.Color();
+  const saved=new THREE.Color();let formPhase=0;
   function occupiedRects(element) {
     if(!element.matches('h1,h2,h3,h4,p'))return [element.getBoundingClientRect()];
     const walker=document.createTreeWalker(element,NodeFilter.SHOW_TEXT),rects=[];
@@ -64,21 +66,37 @@ export function createForegroundScene(root) {
     let y=THREE.MathUtils.lerp(chosen.from[1],chosen.to[1],t)*height;
     const previous=sections[sections.indexOf(chosen)-1];
     if(previous){const blend=smooth(clamp((header+height*.45-rect.top)/(height*.55)));x=THREE.MathUtils.lerp(previous.to[0]*width,x,blend);y=THREE.MathUtils.lerp(previous.to[1]*height,y,blend);}
-    const size=THREE.MathUtils.lerp(chosen.from[2],chosen.to[2],t)*.5*Math.min(1,width/1200);
+    let size=THREE.MathUtils.lerp(chosen.from[2],chosen.to[2],t)*.5*Math.min(1,width/1200);
+    if(isSpotlight){
+      size=Math.min(size,rect.height/2.4);
+      y=rect.top+rect.height*.5-header;
+    }
     const half=size*(isSpotlight?.98:.8)+12;
-    const candidates=landmark==='footer'?[.2,.35,.5,.65,.8].map(px=>[rect.left+rect.width*px,rect.top+rect.height*.5-header]):[[x,y],[width-half-12,y],[half+12,y]];
+    let candidates;
+    if(landmark==='footer'){
+      const control=document.querySelector('.plastic-footer-toggle').getBoundingClientRect();
+      const right=control.right+half+18,left=control.left-half-18;
+      x=right<width-half-6?right:left;y=control.top+control.height*.5-header;
+      candidates=[[x,y],[x===right?left:right,y],...[.2,.35,.5,.65,.8].map(px=>[rect.left+rect.width*px,rect.top+rect.height*.5-header])];
+    }else candidates=[[x,y],[width-half-12,y],[half+12,y]];
     if(landmark!=='footer')for(const py of [.16,.34,.54,.74,.88])for(const px of [.18,.3,.42,.54,.66,.78,.9])candidates.push([px*width,py*height]);
     obstacles=protectedElements.flatMap(occupiedRects).filter(r=>r.width&&r.height&&r.bottom>header&&r.top<innerHeight);
     let best=Infinity,nextAnchor=anchorId;
     const previousTarget=target;
     candidates.forEach((candidate,id)=>{
-      const cx=clamp(candidate[0],half+6,width-half-6),cy=clamp(candidate[1],half+8,height-half-8);
+      const lower=isSpotlight?Math.max(half+8,rect.top-header+half+8):half+8;
+      const upper=isSpotlight?Math.min(height-half-8,rect.bottom-header-half-8):height-half-8;
+      const cx=clamp(candidate[0],half+6,width-half-6),cy=lower<=upper?clamp(candidate[1],lower,upper):clamp(candidate[1],half+8,height-half-8);
       const overlap=overlapAt(cx,cy,size);
       const score=overlap*30+Math.hypot(cx-x,cy-y)+(id===anchorId?0:90)+Math.hypot(cx-previousTarget.x,cy-previousTarget.y)*.18;
       if(score<best){best=score;target={x:cx,y:cy,size};nextAnchor=id;}
     });
     anchorId=nextAnchor;
-    goal=(landmark==='footer'?scrollY+footer.top:scrollY)/Math.max(1,height*.95);
+    // Section-relative choreography survives changes to content height, pinning
+    // and viewport size. The spotlight always resolves to the brand circle.
+    const sectionIndex=landmark==='footer'?sections.length:sections.indexOf(chosen);
+    const sectionProgress=clamp((header+height*.44-rect.top)/Math.max(1,rect.height));
+    goal=landmark==='footer'?sections.length:sectionIndex+sectionProgress;
     active=true;
     root.dataset.visible=String(active);root.dataset.landmark=landmark;
   }
@@ -88,17 +106,24 @@ export function createForegroundScene(root) {
     renderer.setSize(width,height,false);selectTarget();
   }
   function pose() {
-    const phase=((progress*.7)%3+3)%3,elastic=clamp(velocity*.075,-.16,.18);
+    const timeline=clamp(progress,0,shapeStops.length-1),from=Math.floor(timeline),to=Math.min(from+1,shapeStops.length-1),mix=smooth(timeline-from);
+    const phase=THREE.MathUtils.lerp(shapeStops[from],shapeStops[to],mix),elastic=clamp(velocity*.075,-.16,.18);
+    formPhase=phase*(1-dockBlend);
     pieces.forEach((mesh,i)=>{
       const reveal=i===0?1:Math.max(0,companionPop[i-1].value);
       mesh.visible=reveal>.002;if(!mesh.visible)return;
-      knead(mesh.geometry,(phase+i*1.08)%3,elastic*Math.cos(i*1.4),velocity*.09*Math.cos(i));
+      const shapePhase=THREE.MathUtils.lerp((phase+i*1.08)%3,0,dockBlend);
+      knead(mesh.geometry,shapePhase,elastic*Math.cos(i*1.4)*(1-dockBlend),velocity*.09*Math.cos(i)*(1-dockBlend));
       const radius=actor.size*.5*(i===0?1:.39*reveal);mesh.scale.setScalar(radius);
       const offset=i===0?[0,0]:i===1?[-actor.size*.53*reveal,-actor.size*.46*reveal]:[actor.size*.5*reveal,actor.size*.46*reveal];
       mesh.position.set(actor.x-width/2+offset[0],height/2-actor.y-offset[1],i===0?0:-20);
       mesh.rotation.set(.25+Math.sin(progress*.55+i)*.22+velocity*.04,[-.5,.45,-.5][i]+clock*[.09,-.11,.12][i]+progress*[.65,-.55,.75][i],[-.2,.25,-.35][i]+Math.sin(progress*.7)*.22+velocity*.035);
-      const colorPhase=((progress*.55+i)%3+3)%3,index=Math.floor(colorPhase);
-      saved.copy(palette[index]).lerp(palette[(index+1)%3],smooth(colorPhase-index));mesh.material.color.copy(saved);
+      if(i===0){
+        mesh.rotation.x=angleMix(mesh.rotation.x,.2+Math.sin(clock*.22)*.06,dockBlend);
+        mesh.rotation.y=angleMix(mesh.rotation.y,.28+Math.sin(clock*.32)*.26,dockBlend);
+        mesh.rotation.z=angleMix(mesh.rotation.z,Math.sin(clock*.18)*.1,dockBlend);
+      }
+      saved.copy(palette[(shapeStops[from]+i)%3]).lerp(palette[(shapeStops[to]+i)%3],mix).lerp(palette[0],dockBlend);mesh.material.color.copy(saved);
     });
     currentOverlap=overlapAt(actor.x,actor.y,actor.size);
     const nextClearance=currentOverlap<1;
@@ -125,6 +150,7 @@ export function createForegroundScene(root) {
         actor[position]+=actor[speed]*h;
       }
     }
+    dockBlend+=((landmark==='footer'?1:0)-dockBlend)*(1-Math.exp(-dt/.7));
     clock+=dt;pose();renderer.render(scene,camera);frames++;
     const cost=performance.now()-start;frameCost+=cost;maxCost=Math.max(maxCost,cost);
     if(!initialized){initialized=true;root.dataset.state='ready';root.dataset.enhanced='true';document.body.dataset.plasticActive='true';}
@@ -136,13 +162,14 @@ export function createForegroundScene(root) {
   const visibility=()=>{if(document.hidden)stop();else wake();};
   const lost=event=>{event.preventDefault();lostContext=true;stop();enabled=false;root.dataset.state='fallback';root.dataset.enhanced='false';document.body.dataset.plasticActive='false';root.dispatchEvent(new Event('plastic-unavailable'));};
   addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',resize,{passive:true});
+  const contentObserver=new ResizeObserver(resize);contentObserver.observe(document.querySelector('main'));contentObserver.observe(document.querySelector('footer'));
   document.addEventListener('visibilitychange',visibility);canvas.addEventListener('webglcontextlost',lost);
   measure();progress=goal;Object.assign(actor,{x:target.x,y:target.y,size:target.size});Object.assign(guide,target);pose();
   return {
     setEnabled(value){if(lostContext)return;enabled=value;root.dataset.enhanced=String(value&&initialized);document.body.dataset.plasticActive=String(value&&initialized);if(value){measure();wake();}else stop();},
     setPaused(value){paused=value;if(value)stop();else wake();},
     setActive(value){active=value;root.dataset.visible=String(value);if(value)wake();else stop();},
-    inspect(){return {frames,active,enabled,paused,pendingFrame:!!frame,progress,goal,velocity,clock,landmark,actor:{...actor},target:{...target},companions:companionPop.map(pop=>({...pop})),sizeRatio:.5,clearance,currentOverlap,anchorId,pixelRatio:renderer.getPixelRatio(),triangles:renderer.info.render.triangles,averageCpuMs:frames?frameCost/frames:0,maxCpuMs:maxCost,rotation:pieces[0].rotation.toArray().slice(0,3),colors:pieces.map(m=>m.material.color.getHexString()),sample:[...pieces[0].geometry.attributes.position.array.slice(150,159)],finite:pieces.every(m=>m.geometry.attributes.position.array.every(Number.isFinite)),canvas:{width:canvas.width,height:canvas.height}};},
-    dispose(){disposed=true;stop();removeEventListener('scroll',onScroll);removeEventListener('resize',resize);document.removeEventListener('visibilitychange',visibility);canvas.removeEventListener('webglcontextlost',lost);pieces.forEach(m=>{m.geometry.dispose();m.material.dispose();});renderer.dispose();}
+    inspect(){return {formPhase,dockBlend,timeline:"sections",frames,active,enabled,paused,pendingFrame:!!frame,progress,goal,velocity,clock,landmark,actor:{...actor},target:{...target},companions:companionPop.map(pop=>({...pop})),sizeRatio:.5,clearance,currentOverlap,anchorId,pixelRatio:renderer.getPixelRatio(),triangles:renderer.info.render.triangles,averageCpuMs:frames?frameCost/frames:0,maxCpuMs:maxCost,rotation:pieces[0].rotation.toArray().slice(0,3),colors:pieces.map(m=>m.material.color.getHexString()),sample:[...pieces[0].geometry.attributes.position.array.slice(150,159)],finite:pieces.every(m=>m.geometry.attributes.position.array.every(Number.isFinite)),canvas:{width:canvas.width,height:canvas.height}};},
+    dispose(){disposed=true;stop();contentObserver.disconnect();removeEventListener('scroll',onScroll);removeEventListener('resize',resize);document.removeEventListener('visibilitychange',visibility);canvas.removeEventListener('webglcontextlost',lost);pieces.forEach(m=>{m.geometry.dispose();m.material.dispose();});renderer.dispose();}
   };
 }

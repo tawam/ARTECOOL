@@ -1,4 +1,4 @@
-import {createMosaic} from './mosaic.js?v=1.8';
+import {createMosaic} from './mosaic.js?v=1.9';
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 const narrow = matchMedia('(max-width: 760px)');
 const header = document.querySelector('.header');
@@ -127,6 +127,8 @@ function measure() {
   range = Math.max(0, story.offsetHeight - stage.offsetHeight);
   // Layout width stays stable while the tile itself is transformed.
   cell = tiles[0].offsetWidth;
+  const heroLogo=stage.querySelector('.hero-logo');
+  stage.style.setProperty('--hero-copy-top',`${heroLogo.offsetTop+heroLogo.offsetHeight+28}px`);
   schedule();
 }
 function setScene(scene) {
