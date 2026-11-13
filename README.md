@@ -1,10 +1,10 @@
-# ARTECOOL — protótipo web v1.15
+# ARTECOOL — protótipo web v1.16
 
 Edição 2026. Site estático com HTML, CSS e JavaScript. Sirva esta pasta por HTTP para revisar as interações. Não é necessário instalar dependências ou executar build para hospedar. Recursos usam caminhos relativos e foram verificados sob o prefixo /artecool/.
 
 ## GitHub Pages
 
-Envie o conteúdo desta pasta à raiz do repositório e configure Pages para a raiz da branch desejada. .nojekyll está incluído. O estado da publicação é acompanhado no projeto; noindex/nofollow permanecem nesta distribuição.
+Envie o conteúdo desta pasta à raiz do repositório e configure Pages para a raiz da branch desejada. .nojekyll está incluído. O estado da publicação é acompanhado no projeto; indexação liberada, URL canônica https://artecool.com.br/, robots.txt e sitemap.xml incluídos. A tag oficial de verificação do Search Console deve permanecer no HTML. O envio ao Google e o estado de indexação são registrados separadamente.
 
 ## Conteúdo confirmado
 

@@ -1,13 +1,13 @@
 {
-  "version": "1.15.0",
-  "release": "16_v1.15_ARTECOOL",
-  "createdAt": "2026-11-13T22:16:22.986Z",
+  "version": "1.16.0",
+  "release": "17_v1.16_ARTECOOL",
+  "createdAt": "2026-11-13T23:11:05.799Z",
   "status": "Prepared locally; publication tracked separately",
   "files": [
     {
       "file": "index.html",
-      "bytes": 34496,
-      "sha256": "3ce27ecd280027e6c0d20d2991cb7d5ffa4aaa0222d34a5690a9a49c26d141ff"
+      "bytes": 34816,
+      "sha256": "dbbc788d033a8760b59ca921c7028e90ecd9975af0c8a0c69e1e9df78effedcf"
     },
     {
       "file": "styles.css",
@@ -58,6 +58,16 @@
       "file": "CNAME",
       "bytes": 16,
       "sha256": "a9762647cd1ae05f99a30adaf30c3a286375e3ca227a87461f2e8d0072560c2a"
+    },
+    {
+      "file": "robots.txt",
+      "bytes": 69,
+      "sha256": "83e52fd96199793ad958532fb46bd307ca38575cffe64b6f6fb23819eb4b06e7"
+    },
+    {
+      "file": "sitemap.xml",
+      "bytes": 201,
+      "sha256": "fac2fbdaf657b831cd70c7b2fe7f7c0bee3076c571924a69ddaff96f7f0e1308"
     },
     {
       "file": "assets/artists/a-ka-mosaic.webp",
