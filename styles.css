@@ -43,9 +43,8 @@ a svg:not(.brand-shape),button > svg,.scroll-note > svg{width:24px;height:24px;f
 .header-agenda svg{width:20px !important}
 .menu-toggle{display:none}
 .morph-story{position:relative;min-height:calc(100svh - var(--header));background:var(--pink)}
-.motion-enabled .morph-story{height:230svh}
 .morph-stage{position:relative;height:calc(100svh - var(--header));min-height:690px;overflow:hidden;background:var(--pink);color:white;transition:background-color 950ms var(--ease)}
-.motion-enabled .morph-stage{position:sticky;top:var(--header)}
+.motion-enabled .morph-stage{position:relative;top:0px}
 .hero-meta{position:absolute;left:var(--pad);right:var(--pad);top:25px;display:flex;justify-content:space-between;font-family:"Roc Grotesk Wide",sans-serif;font-weight:300;font-size:11px;letter-spacing:0.025em;gap:12px}
 .hero-logo{position:absolute;left:var(--pad);top:74px;width:calc(100% - 2*var(--pad));height:auto;pointer-events:none}
 .hero-text{position:absolute;left:var(--pad);z-index:3;width:39%}
@@ -254,7 +253,6 @@ a svg:not(.brand-shape),button > svg,.scroll-note > svg{width:24px;height:24px;f
   .header:not([data-enhanced]) nav a{font-size:12px}
   .morph-stage{min-height:865px;height:calc(100svh - var(--header));max-height:1050px}
   .motion-enabled .morph-stage{min-height:0px;height:calc(100svh - var(--header))}
-  .motion-enabled .morph-story{height:220svh}
   .hero-meta{font-size:11px;top:23px}
   .hero-logo{top:64px}
   .hero-text{top:calc(95px + 12vw);width:calc(100% - 2*var(--pad))}
@@ -387,7 +385,13 @@ a svg:not(.brand-shape),button > svg,.scroll-note > svg{width:24px;height:24px;f
 .urban-trio figcaption{font-size:12px;line-height:1.5;padding-top:12px;font-weight:700}
 .urban-trio > p{grid-column:1 / -1;font-size:12px;margin-top:12px}
 @media (min-width: 761px) {
-  .scene-caption{max-width:none;min-block-size:3.48em;display:grid;align-content:center;font-family:"Roc Grotesk Wide",sans-serif;font-size:clamp(20px,1.55vw,26px);font-weight:700;line-height:1.16;letter-spacing:-0.02em;color:#ffe074;text-wrap:balance}
+  .morph-stage,.motion-enabled .morph-stage{display:grid;grid-template-columns:minmax(0px,39fr) minmax(0px,55fr);column-gap:6%;grid-template-rows:auto auto 1fr auto;position:relative;top:0px;height:auto;min-height:calc(100svh - var(--header));max-height:none;padding:25px var(--pad) 26px}
+  .morph-stage .hero-meta{position:static;grid-column:1 / -1;grid-row:1}
+  .morph-stage .hero-logo{position:static;grid-column:1 / -1;grid-row:2;width:100%;height:auto;max-height:220px;object-fit:contain;margin-top:40px}
+  .morph-stage .hero-text{position:static;grid-column:1;grid-row:3;width:auto;align-self:start;margin-top:28px}
+  .morph-stage .mosaic{position:relative;grid-column:2;grid-row:3;top:auto;right:auto;bottom:auto;align-self:start;justify-self:end;margin-top:28px;--cell:min(17vw,26vh,calc((100vw - 2 * var(--pad)) * .55 / 3))}
+  .morph-stage .hero-bottom{position:static;grid-column:1 / -1;grid-row:4;left:auto;right:auto;bottom:auto;margin-top:32px}
+  .scene-caption{max-width:none;min-block-size:3.48em;display:grid;align-content:center;font-family:"Roc Grotesk Wide",sans-serif;font-size:clamp(20px,1.55vw,26px);font-weight:700;line-height:1.16;letter-spacing:-0.02em;color:#ffff6b;text-wrap:balance}
 }
 @media (min-width: 761px) and (max-width: 1100px) {
   .hero-bottom{grid-template-columns:minmax(0px,1fr) auto}

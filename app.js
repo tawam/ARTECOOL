@@ -116,7 +116,7 @@ document.querySelectorAll('[data-reveal-artist]').forEach(link=>link.addEventLis
   card.scrollIntoView({block:'center',behavior:reduced.matches?'instant':'smooth'});
 }));
 
-// Scroll changes the scene; mosaic.js alone owns the block choreography.
+// Native document scrolling changes the scene without pinning or reserved scroll space.
 const story = document.querySelector('.morph-story');
 const stage = document.querySelector('.morph-stage');
 const mosaic = document.querySelector('.mosaic');
@@ -127,7 +127,7 @@ let range = 0, storyTop = 0, scheduled = false, activeScene = -1;
 const clamp = (v, min = 0, max = 1) => Math.max(min, Math.min(max, v));
 function measure() {
   storyTop = story.getBoundingClientRect().top + scrollY;
-  range = Math.max(0, story.offsetHeight - stage.offsetHeight);
+  range = Math.max(1, stage.offsetHeight - header.offsetHeight);
   const heroLogo=stage.querySelector('.hero-logo');
   stage.style.setProperty('--hero-copy-top',`${heroLogo.offsetTop+heroLogo.offsetHeight+28}px`);
   schedule();
@@ -141,7 +141,7 @@ function setScene(scene) {
 }
 function draw() {
   scheduled = false;
-  if (reduced.matches || range < 20) {
+  if (reduced.matches) {
     setScene(0);
     return;
   }
@@ -156,8 +156,7 @@ function configureMotion() {
   measure();
 }
 sceneButtons.forEach((button,i) => button.addEventListener('click', () => {
-  if (!reduced.matches && range > 20) scrollTo({top: storyTop - header.offsetHeight + range * [0,.52,.95][i], behavior:'smooth'});
-  else setScene(i);
+  setScene(i);
 }));
 addEventListener('scroll', schedule, {passive:true});
 addEventListener('resize', () => {measure();positionTabIndicator();}, {passive:true});

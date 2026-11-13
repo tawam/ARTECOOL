@@ -1,23 +1,23 @@
 {
-  "version": "1.13.0",
-  "release": "14_v1.13_ARTECOOL",
-  "createdAt": "2026-11-13T21:15:35.481Z",
+  "version": "1.14.0",
+  "release": "15_v1.14_ARTECOOL",
+  "createdAt": "2026-11-13T21:42:13.029Z",
   "status": "Prepared locally; publication tracked separately",
   "files": [
     {
       "file": "index.html",
       "bytes": 34496,
-      "sha256": "60e6fc49934dc6145bbf5616a92468161740fdce226e451c950937ab1f2456b5"
+      "sha256": "1737f560ea009ee953b5d1679a63624fe2f80306688fecb98c7c4b315838a09a"
     },
     {
       "file": "styles.css",
-      "bytes": 29705,
-      "sha256": "2d233bb3522e7cd7661a072a1ca8d3c9cbc1e045c20a2d24baecede8352248d4"
+      "bytes": 30565,
+      "sha256": "804f34c28e7dfd1475f50ccb945a56ee3ca65c85d1498debaccd574cb976fa8d"
     },
     {
       "file": "app.js",
-      "bytes": 8886,
-      "sha256": "afa72d8f70d950ce3cd00543dc1917aec669fd58bab2c7f8da9a0581e26a2e9b"
+      "bytes": 8752,
+      "sha256": "72c0be270bc8a75c4f7003ac845463101a9851b82fa869ca800ef474896861a8"
     },
     {
       "file": "mosaic.js",
