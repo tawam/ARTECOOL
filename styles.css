@@ -386,6 +386,12 @@ a svg:not(.brand-shape),button > svg,.scroll-note > svg{width:24px;height:24px;f
 .urban-trio figure:nth-child(3){padding-top:90px}
 .urban-trio figcaption{font-size:12px;line-height:1.5;padding-top:12px;font-weight:700}
 .urban-trio > p{grid-column:1 / -1;font-size:12px;margin-top:12px}
+@media (min-width: 761px) {
+  .scene-caption{max-width:none;min-block-size:3.48em;display:grid;align-content:center;font-family:"Roc Grotesk Wide",sans-serif;font-size:clamp(20px,1.55vw,26px);font-weight:700;line-height:1.16;letter-spacing:-0.02em;color:#ffe074;text-wrap:balance}
+}
+@media (min-width: 761px) and (max-width: 1100px) {
+  .hero-bottom{grid-template-columns:minmax(0px,1fr) auto}
+}
 @media (hover: hover) and (pointer: fine) {
   .mosaic-toggle:hover{background:var(--paper);color:var(--ink)}
 }

@@ -1,18 +1,18 @@
 {
-  "version": "1.12.0",
-  "release": "13_v1.12_ARTECOOL",
-  "createdAt": "2026-11-13T12:29:13.688Z",
+  "version": "1.13.0",
+  "release": "14_v1.13_ARTECOOL",
+  "createdAt": "2026-11-13T21:15:35.481Z",
   "status": "Prepared locally; publication tracked separately",
   "files": [
     {
       "file": "index.html",
-      "bytes": 34495,
-      "sha256": "f08550af11963d15bf968024b6f4f725583b6e7fbf0c9ca5f9610c8c1398cee7"
+      "bytes": 34496,
+      "sha256": "60e6fc49934dc6145bbf5616a92468161740fdce226e451c950937ab1f2456b5"
     },
     {
       "file": "styles.css",
-      "bytes": 29309,
-      "sha256": "9dedbaa4f47092fba059eb9102c8f7a0bd46478caea7736681b82cec41b322d2"
+      "bytes": 29705,
+      "sha256": "2d233bb3522e7cd7661a072a1ca8d3c9cbc1e045c20a2d24baecede8352248d4"
     },
     {
       "file": "app.js",
@@ -53,6 +53,11 @@
       "file": "favicon.svg",
       "bytes": 160,
       "sha256": "3040e7b2d051c8c437b0b57c1a25bfe927fade1371f877803c1e7e5442461d22"
+    },
+    {
+      "file": "CNAME",
+      "bytes": 16,
+      "sha256": "a9762647cd1ae05f99a30adaf30c3a286375e3ca227a87461f2e8d0072560c2a"
     },
     {
       "file": "assets/artists/a-ka-mosaic.webp",
