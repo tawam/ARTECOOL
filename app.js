@@ -1,3 +1,4 @@
+import {createMosaic} from './mosaic.js?v=1.8';
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 const narrow = matchMedia('(max-width: 760px)');
 const header = document.querySelector('.header');
@@ -67,7 +68,8 @@ tabs.forEach((tab, i) => {
   });
 });
 document.querySelectorAll('[data-open-axis]').forEach(link => link.addEventListener('click', () => selectAxis(link.dataset.openAxis)));
-selectAxis('royalty');
+selectAxis(location.hash==='#territorios'||location.hash==='#panel-urban'?'urban':'royalty');
+addEventListener('hashchange',()=>{if(location.hash==='#territorios'||location.hash==='#panel-urban')selectAxis('urban');});
 
 const artistCards = [...document.querySelectorAll('[data-artist]')];
 const artistFilters = [...document.querySelectorAll('[data-filter]')];
@@ -102,6 +104,13 @@ more.addEventListener('click', () => {
   card.focus({preventScroll:true});
 });
 filterArtists('all', false);
+document.querySelectorAll('[data-reveal-artist]').forEach(link=>link.addEventListener('click',event=>{
+  event.preventDefault();
+  expanded=true;filterArtists('all');
+  const card=artistCards.find(card=>card.dataset.artist===link.dataset.revealArtist);
+  card.setAttribute('tabindex','-1');card.focus({preventScroll:true});
+  card.scrollIntoView({block:'center',behavior:reduced.matches?'instant':'smooth'});
+}));
 
 // The original modules persist. Scroll only changes their spatial relationships.
 const story = document.querySelector('.morph-story');
@@ -130,7 +139,7 @@ function setScene(scene) {
 function draw() {
   scheduled = false;
   if (reduced.matches || range < 20) {
-    tiles.forEach(tile => { tile.style.transform = ''; tile.style.borderRadius = ''; });
+    tiles.forEach(tile => { tile.style.transform = ''; tile.style.borderRadius = ''; tile.querySelector('.tile-shape').style.transform=''; });
     setScene(0);
     return;
   }
@@ -142,8 +151,8 @@ function draw() {
     const [x,y,r] = offsets[i];
     const horizontal = (x * spread + (i % 2 ? .03 : -.03) * p) * cell;
     const vertical = y * spread * cell;
-    tile.style.transform = `translate3d(${horizontal.toFixed(2)}px,${vertical.toFixed(2)}px,0) rotate(${(r*p).toFixed(2)}deg) scale(${(1 - .08*spread).toFixed(4)})`;
-    if (i === 1 || i === 4) tile.style.borderRadius = `${(Math.sin(phase)*48).toFixed(2)}%`;
+    tile.style.transform = `translate3d(${horizontal.toFixed(2)}px,${vertical.toFixed(2)}px,0) scale(${(1 - .08*spread).toFixed(4)})`;
+    tile.querySelector('.tile-shape').style.transform=`rotate(${(r*p).toFixed(2)}deg)`;
   });
   setScene(p < .33 ? 0 : p < .72 ? 1 : 2);
   stage.style.setProperty('--story-progress', p.toFixed(4));
@@ -164,6 +173,7 @@ addEventListener('resize', () => {measure();positionTabIndicator();}, {passive:t
 reduced.addEventListener('change', configureMotion);
 document.fonts.ready.then(() => {measure();positionTabIndicator();});
 configureMotion();
+createMosaic(mosaic,story,reduced);
 
 const sections = [...document.querySelectorAll('main>section[id]')];
 if ('IntersectionObserver' in window) {

@@ -8,7 +8,6 @@ const route=[
   ['#programacao',[.52,.25,185],[.51,.78,185]],
   ['#outras-formas',[.73,.44,400],[.76,.54,350]],
   ['#artistas',[.56,.32,220],[.5,.8,215]],
-  ['#territorios',[.52,.48,220],[.5,.82,210]],
   ['#informacoes',[.48,.64,180],[.47,.82,180]],
   ['.closing',[.6,.35,230],[.62,.7,200]]
 ];
@@ -29,7 +28,7 @@ export function createForegroundScene(root) {
   });
   const sections=route.map(([selector,from,to])=>({element:document.querySelector(selector),selector,from,to}));
   const footerSection={element:document.querySelector('.footer-top'),selector:'footer',from:[.5,.5,84],to:[.5,.5,84]};
-  const protectedElements=[...document.querySelectorAll('main h1,main h2,main h3,main h4,main p,main a,main button,main summary,main img,footer p,footer a,footer button,footer img,footer svg,.footer-bottom,.session-date,.session-time,.artist-photo,.axis-tabs,.artist-filters,.mosaic,.urban-composition,.territory-links')].filter(el=>!el.classList.contains('sr-only'));
+  const protectedElements=[...document.querySelectorAll('main h1,main h2,main h3,main h4,main p,main a,main button,main summary,main img,footer p,footer a,footer button,footer img,footer svg,.footer-bottom,.session-date,.session-time,.artist-photo,.axis-tabs,.artist-filters,.mosaic,.urban-composition,.urban-neighborhoods,.urban-trio,.resident-dj,.territory-links')].filter(el=>!el.classList.contains('sr-only'));
   const actor={x:0,y:0,size:0,vx:0,vy:0,vs:0,ax:0,ay:0,as:0};
   const guide={x:0,y:0,size:0};
   const companionPop=[{value:0,velocity:0},{value:0,velocity:0}];

@@ -1,23 +1,28 @@
 {
-  "version": "1.6.0",
-  "release": "07_v1.6_ARTECOOL",
-  "createdAt": "2026-11-12T23:04:25.569Z",
+  "version": "1.8.0",
+  "release": "09_v1.8_ARTECOOL",
+  "createdAt": "2026-11-13T03:46:01.935Z",
   "status": "Prototype; not published; human review pending",
   "files": [
     {
       "file": "index.html",
-      "bytes": 30287,
-      "sha256": "51e35e1b2c5503a892bcf7eb16035f1fa8cab793ec5b7c6d508ea5a12aada8c8"
+      "bytes": 34491,
+      "sha256": "591cf876f86bbb0c9e59e4bf152440ce6ac5b911916309d37aeab2a50a0c55e0"
     },
     {
       "file": "styles.css",
-      "bytes": 25475,
-      "sha256": "b6db19e6c0d396df512fef3bf7ff9707340403e6581e9fa59c8ba971f18bd8cc"
+      "bytes": 29724,
+      "sha256": "e33f30a5073dbccbc02b706051b163392db91691ebbba76bdf9e8573e6fe8371"
     },
     {
       "file": "app.js",
-      "bytes": 8799,
-      "sha256": "9381a34a101ec495af4e5fef922358fccd47238b19f5f0b36aa37e3c1da11bec"
+      "bytes": 9511,
+      "sha256": "175b1af7e9b41769b634c6b83601945a331c55b3c6b42681f77d9f558965d22b"
+    },
+    {
+      "file": "mosaic.js",
+      "bytes": 4811,
+      "sha256": "48f8ffc387b1e0fb4b7d0fbeb6e4c9a7a73c6be3097c48920ad392cb921bb3eb"
     },
     {
       "file": "plastic.css",
@@ -27,7 +32,7 @@
     {
       "file": "plastic-loader.js",
       "bytes": 1906,
-      "sha256": "5d0b3708ea1eec8a6a704388f01ff0ddc79ee19d784f18d9a43a9ca897c37065"
+      "sha256": "2b14c08fee38bb4b6928ddbf886a6c004fe719ab2bd5c59ca5ec55a991ea6055"
     },
     {
       "file": "plastic-scene.js",
@@ -36,8 +41,8 @@
     },
     {
       "file": "foreground-scene.js",
-      "bytes": 10942,
-      "sha256": "dc1fc9c522ce088b3b0cc56fc929816abf5954df7b78890d2b78f41b61332f3c"
+      "bytes": 10941,
+      "sha256": "385076d4a20cc92ed98d71508c8c0f19c907d37a36cd6b1e9ecfac82c6ef5103"
     },
     {
       "file": "favicon.svg",
@@ -45,9 +50,39 @@
       "sha256": "3040e7b2d051c8c437b0b57c1a25bfe927fade1371f877803c1e7e5442461d22"
     },
     {
+      "file": "assets/artists/a-ka-mosaic.webp",
+      "bytes": 31496,
+      "sha256": "9ba47a765ee23967b3724f49ad9ef49be648b65d77521d6838eba3898f5bd9f1"
+    },
+    {
+      "file": "assets/artists/a-ka.webp",
+      "bytes": 105744,
+      "sha256": "caf6516d33e1044425b278f0c8d9cb232486dc338d2bdb2fc71ba32bdd1bdceb"
+    },
+    {
+      "file": "assets/artists/amaiz-mosaic.webp",
+      "bytes": 35784,
+      "sha256": "61a41cd49b93521b3eac928a2ee221ea44c1a11960f791d141c3d22e0ec41e34"
+    },
+    {
+      "file": "assets/artists/amaiz.webp",
+      "bytes": 106544,
+      "sha256": "6cef2758a52fcfe2ae1694a15b8539b9c4c20688f12427662553f8475fc32680"
+    },
+    {
+      "file": "assets/artists/amestica-mosaic.webp",
+      "bytes": 12316,
+      "sha256": "dbb3592ea781731a738813b5d953cee54c52accba284d33d1dee4be96ba7377c"
+    },
+    {
       "file": "assets/artists/amestica.webp",
       "bytes": 57218,
       "sha256": "1eb240d049c13dba12d7e3a46da76fef8803c76a6d9fc118a6c817fec4d8baf7"
+    },
+    {
+      "file": "assets/artists/artestenciva-mosaic.webp",
+      "bytes": 24964,
+      "sha256": "e4f4577e7b3cc8c17a00a29474a8d8f308452c2a6b1f0e8c1abe22622a0099ac"
     },
     {
       "file": "assets/artists/artestenciva.webp",
@@ -55,9 +90,19 @@
       "sha256": "71a34f3f7d8949279819241f6e6906714a5e826ba0568be8b702d0fc7604fb46"
     },
     {
+      "file": "assets/artists/babs-mosaic.webp",
+      "bytes": 17148,
+      "sha256": "dcb289fff1ec2e1270b7844b70900d89215c208f2e71b95cb4d86941ce8b2c5f"
+    },
+    {
       "file": "assets/artists/babs.webp",
       "bytes": 531366,
       "sha256": "fded41378133330e8b82a360ca9971c4997236929edf24625f21a98401d41521"
+    },
+    {
+      "file": "assets/artists/baby-babi-mosaic.webp",
+      "bytes": 19248,
+      "sha256": "44dec5639c4673cddbb2d6855af44bca8e02bbce1b5233b761ec7ee978db2aba"
     },
     {
       "file": "assets/artists/baby-babi.webp",
@@ -65,9 +110,19 @@
       "sha256": "467ff01cf7e6e09a253f4d6b3b4aa9eb1315317cfa20885fb3516b257db4dda1"
     },
     {
+      "file": "assets/artists/cassol-mosaic.webp",
+      "bytes": 6862,
+      "sha256": "9c49f4f78fe53ff70f65c404fdd9b10231d492452564f6798815bec517c54916"
+    },
+    {
       "file": "assets/artists/cassol.webp",
       "bytes": 41022,
       "sha256": "1117fead66c86cd2cc57762231632c201fa93ca3a65c775cded819c656643564"
+    },
+    {
+      "file": "assets/artists/cleo-mosaic.webp",
+      "bytes": 40328,
+      "sha256": "51e216910c194194d6e8c286b8fe17d790c68bd44fb54c25c4311f91ab61de00"
     },
     {
       "file": "assets/artists/cleo-small.webp",
@@ -80,9 +135,39 @@
       "sha256": "891cf96e37ab619375a23a432f9e47771648e2aba88f7f86c0cf8c685dfff8b0"
     },
     {
+      "file": "assets/artists/cris-pagnoncelli-mosaic.webp",
+      "bytes": 16710,
+      "sha256": "7880f35f488d0500c9fd6b3c5cefb236a4b50b7b478c6d3e5f0bcee51daa92ba"
+    },
+    {
       "file": "assets/artists/cris-pagnoncelli.webp",
       "bytes": 226184,
       "sha256": "792d9fdacaba953466e58b6e26f8b783ee2d0856492e9a28239cad51c16e505d"
+    },
+    {
+      "file": "assets/artists/dj-spena-mosaic.webp",
+      "bytes": 12012,
+      "sha256": "9f2ef894f2900e6684ac8b140fb67ea7e9ce7b75ec3488a8c22ef6ea22ace81e"
+    },
+    {
+      "file": "assets/artists/dj-spena.webp",
+      "bytes": 55474,
+      "sha256": "6feb48786e1ec68936dcb900af4f9d18e6f387e3994302cbf1e1a69fb1cf4087"
+    },
+    {
+      "file": "assets/artists/eu-sou-will-mosaic.webp",
+      "bytes": 27044,
+      "sha256": "373a026063f075af6afea70a29ffa3ad2a90e3aafc65601eba131fe8bd3c52a5"
+    },
+    {
+      "file": "assets/artists/eu-sou-will.webp",
+      "bytes": 94500,
+      "sha256": "632e4055f19cb6066fb478c07fc47d653901e2f7cc14843293e94a30dfdc5e94"
+    },
+    {
+      "file": "assets/artists/lipe-soul-black-mosaic.webp",
+      "bytes": 10254,
+      "sha256": "a7893c6d55ec2b11d76258beb29c7bb415afc458df6b474910298a43dda03820"
     },
     {
       "file": "assets/artists/lipe-soul-black.webp",
@@ -90,9 +175,19 @@
       "sha256": "a1b98d5f9d67108a222d907690d96210b35029c10e1aa220ab10043590d0d920"
     },
     {
+      "file": "assets/artists/marcella-calado-mosaic.webp",
+      "bytes": 5870,
+      "sha256": "ae8a0773fcbb59b193d4eff58c1f2d33a83d016117019962867ef3909d8c1c77"
+    },
+    {
       "file": "assets/artists/marcella-calado.webp",
       "bytes": 32788,
       "sha256": "ba032335beec32332af3bbd3164a9ac02e19feab8d4a618c4f3dd6d50d7903f1"
+    },
+    {
+      "file": "assets/artists/menord-mosaic.webp",
+      "bytes": 7788,
+      "sha256": "f21ffc17293dadc0eeb031b1c6f40b4ec114c13e2dbff11cf3add490694899b5"
     },
     {
       "file": "assets/artists/menord.webp",
@@ -100,14 +195,49 @@
       "sha256": "de5be203c6c0e5ee26cdf6b0efab94d730a4739669b0b87f1b13abdb8b8be690"
     },
     {
+      "file": "assets/artists/micah-mosaic.webp",
+      "bytes": 10938,
+      "sha256": "d1ad999f2da968888e943592da051d72b736d710511a3a1e7bcb6157315fbe0b"
+    },
+    {
       "file": "assets/artists/micah.webp",
       "bytes": 42238,
       "sha256": "cc5dab6bb8b32534c12a85f2efc17ff85e18db43e02771aec384cec8e554fdcc"
     },
     {
+      "file": "assets/artists/michael-devis-mosaic.webp",
+      "bytes": 11616,
+      "sha256": "bdc6525a61f050f9e813a3f29d6e3aa9cd5b0834eb48de70d9dcf17fd66d7eb8"
+    },
+    {
+      "file": "assets/artists/michael-devis.webp",
+      "bytes": 21140,
+      "sha256": "74678b9ae950dd18ee964f57b0c06f8d0055a85fbd10088e193169d0ae17be30"
+    },
+    {
+      "file": "assets/artists/nathy-picoli-mosaic.webp",
+      "bytes": 32814,
+      "sha256": "b6ff7de65dc19f61b2a9e3675e5b31b5847ae424d340ad03fd04399da8e4b4cf"
+    },
+    {
       "file": "assets/artists/nathy-picoli.webp",
       "bytes": 134068,
       "sha256": "7c806db040e688095dd77ad1fc55803fff37b4e259fcdb2f23d5518f00409549"
+    },
+    {
+      "file": "assets/artists/neto-vettorello-mosaic.webp",
+      "bytes": 12106,
+      "sha256": "d294a059dfc5eb0f655c5fdcae25267356ca53989b89694a554e17d77c59565a"
+    },
+    {
+      "file": "assets/artists/neto-vettorello.webp",
+      "bytes": 44514,
+      "sha256": "8b74af1f5b5001b3796af6dd6f8db4fe5f7fa3cd820eab2d1370cc9368be99c9"
+    },
+    {
+      "file": "assets/artists/pedro-afara-mosaic.webp",
+      "bytes": 36936,
+      "sha256": "4483b66825a51d34dfbd0523836e8d5e3f72032b15e9dba538dcf7dcdbd475b4"
     },
     {
       "file": "assets/artists/pedro-afara-small.webp",
@@ -120,6 +250,11 @@
       "sha256": "e42f66d5aff7f56fac6cd3f1dea2d9cbe5bc15b2fe9c277c3114acca24670585"
     },
     {
+      "file": "assets/artists/prosa-mosaic.webp",
+      "bytes": 25022,
+      "sha256": "817c159c1120b2430066c57ab6090ec62b4ddc413fc66661f4470c33ce8a4963"
+    },
+    {
       "file": "assets/artists/prosa-small.webp",
       "bytes": 43826,
       "sha256": "3cb113dd931c8dcc654f5bbbb6141a11d62ba2e3dbeb77d8174dfc2ca0e32396"
@@ -128,6 +263,11 @@
       "file": "assets/artists/prosa.webp",
       "bytes": 112842,
       "sha256": "a1837d97f3f9cfc31b298baf140ab09c31d68392036dc5934dd7dfa2f49cf4e9"
+    },
+    {
+      "file": "assets/artists/sereia-kozmica-mosaic.webp",
+      "bytes": 34754,
+      "sha256": "ce9985510186ba2e580537e96d2ab255996054241494158ea3d93115cd8ea9ad"
     },
     {
       "file": "assets/artists/sereia-kozmica-small.webp",
@@ -140,14 +280,29 @@
       "sha256": "07cdd1843957be1cfc827f5ddf2ffb598e9a881b303301b099988e8809be23ff"
     },
     {
+      "file": "assets/artists/siamese-mosaic.webp",
+      "bytes": 18432,
+      "sha256": "17ad84d8c9eb186e52d50c6725e64b5c7ba7638fb9c7bdb33fc9b1a1e428b26e"
+    },
+    {
       "file": "assets/artists/siamese.webp",
       "bytes": 241318,
       "sha256": "84d78bd5de86e606ab14da5281bedc0b282d104a736f3573a963230310ac47e6"
     },
     {
+      "file": "assets/artists/titcho-mosaic.webp",
+      "bytes": 16698,
+      "sha256": "ff39d9391bb17f0d1d2ffa5a6ca276c1b52f0d01b322a9d22f448ad289264f16"
+    },
+    {
       "file": "assets/artists/titcho.webp",
       "bytes": 405320,
       "sha256": "16b9ab112a02d5adfbe4d86d6bd09ffd84af975cd8e4bcca7a3596b73d00fd28"
+    },
+    {
+      "file": "assets/artists/wes-ventura-mosaic.webp",
+      "bytes": 42684,
+      "sha256": "9ef4d098e8147a113f2694809646880e1bfe8d1482623791a482a18b60eb4b20"
     },
     {
       "file": "assets/artists/wes-ventura.webp",
@@ -168,16 +323,6 @@
       "file": "assets/brand/logo-white.svg",
       "bytes": 2765,
       "sha256": "677535eec05abe5b5a40012ded9e8b8d8ce0717b771a21524e73c786214066fe"
-    },
-    {
-      "file": "assets/fonts/Manrope-OFL.txt",
-      "bytes": 4387,
-      "sha256": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b"
-    },
-    {
-      "file": "assets/fonts/Manrope.ttf",
-      "bytes": 164700,
-      "sha256": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6"
     },
     {
       "file": "assets/fonts/RocGrotesk-Bold.otf",
@@ -223,16 +368,6 @@
       "file": "assets/fonts/RocGroteskWide-Regular.otf",
       "bytes": 59808,
       "sha256": "52a69b7b6538e998c8261029fb34d718a2de852191a106fe11dc80851e0f326c"
-    },
-    {
-      "file": "assets/fonts/Unbounded-OFL.txt",
-      "bytes": 4392,
-      "sha256": "31e5d4e83955e7103c34570dd49b0570ef490800bd65b42923c0dd02445263b3"
-    },
-    {
-      "file": "assets/fonts/Unbounded.ttf",
-      "bytes": 778272,
-      "sha256": "323b511be380c8d474ef030686b71aedde501f8d9cd46da558b7c40454372c3f"
     },
     {
       "file": "assets/posters/intervencoes.png",

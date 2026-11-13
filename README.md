@@ -1,4 +1,4 @@
-# ARTECOOL — protótipo web v1.6
+# ARTECOOL — protótipo web v1.8
 
 Edição 2026. Site estático com HTML, CSS e JavaScript. Sirva esta pasta por HTTP para revisar as interações. Não é necessário instalar dependências ou executar build para hospedar. Recursos usam caminhos relativos e foram verificados sob o prefixo /artecool/.
 
@@ -8,7 +8,7 @@ Envie o conteúdo desta pasta à raiz do repositório e configure Pages para a r
 
 ## Conteúdo confirmado
 
-Período geral/Royalty 13/11–17/12; intervenções 13/11–13/12; Ópera 20/11, abertura às 18h; Cassol/Menor’D em 02/12; Mica Raddi; classificação livre em todas as ações. De 08 a 17/12, apenas exposição no Royalty. Faltam horários e ordem dos shows, detalhes das intervenções e condições de inscrição/vagas/custo das oficinas. Gratuidade confirmada apenas para a Ópera. Canal: @artecoolx.
+Período geral/Royalty 13/11–17/12; intervenções 13/11–13/12; Ópera 20/11, abertura às 18h; Cassol/Menor’D em 02/12; Mica Raddi; classificação livre em todas as ações. De 08 a 17/12, apenas exposição no Royalty. Faltam horários e ordem dos shows, detalhes das intervenções e condições de inscrição/vagas/custo das oficinas. Entrada franca confirmada na Ópera e na exposição do Royalty de08–17/12, sem estender às demais atividades. Canal: @artecoolx.
 
 ## Identidade e arquivos
 
@@ -16,4 +16,12 @@ Logo original em curvas. Roc Grotesk Wide nos títulos e Roc Grotesk na leitura,
 
 Rodapé com Lei Rouanet, Mili, Sanepar, Ministério da Cultura e Governo Federal. Mobile reorganiza os grupos originais em tamanho maior.
 
-index.html é a página; styles.css contém o sistema visual; app.js contém interações; plastic-loader.js, foreground-scene.js e plastic-scene.js carregam e executam a peça 3D elástica em primeiro plano, com estilo em plastic.css; assets reúne os recursos usados. A peça 3D, com50% da escala inicial e trajeto nos espaços livres, atravessa o conteúdo em uma camada fixa e usa Three.js 0.186.1/MIT, copiado localmente com licença em assets/vendor/three/LICENSE.txt, sem CDN. A peça principal mantém presença contínua, sem fade de desvio; as companheiras entram e saem com pop elástico de escala. No final, diminui e estaciona girando na faixa superior do rodapé. Inclui ativação/desativação, preferência local persistente e alternativa vetorial para mobile e falhas de WebGL. Redução de movimento é respeitada por padrão; o visitante pode ativar explicitamente somente esta experiência. Original do acervo e documentação interna não estão neste pacote. version-manifest.json registra hashes da versão.
+index.html é a página; styles.css contém o sistema visual; app.js contém interações; mosaic.js alterna artistas e formas da abertura; plastic-loader.js, foreground-scene.js e plastic-scene.js carregam e executam a peça 3D elástica em primeiro plano, com estilo em plastic.css; assets reúne os recursos usados. A peça 3D, com50% da escala inicial e trajeto nos espaços livres, atravessa o conteúdo em uma camada fixa e usa Three.js 0.186.1/MIT, copiado localmente com licença em assets/vendor/three/LICENSE.txt, sem CDN. A peça principal mantém presença contínua, sem fade de desvio; as companheiras entram e saem com pop elástico de escala. No final, diminui e estaciona girando na faixa superior do rodapé. Inclui ativação/desativação, preferência local persistente e alternativa vetorial para mobile e falhas de WebGL. Redução de movimento é respeitada por padrão; o visitante pode ativar explicitamente somente esta experiência. Original do acervo e documentação interna não estão neste pacote. version-manifest.json registra hashes da versão.
+
+## Revisões de conteúdo e mosaico
+
+Ordem Royalty Café → Intervenções urbanas → Ópera de Arame. Galeria alfabética com24 entradas e24 retratos; DJ Spena usa a foto do perfil oficial indicada por Taw. Babs tem destaque como DJ residente. Intervenções concentram os três artistas e os cinco bairros, sem inventar correspondências individuais. Lâminas redundantes removidas.
+
+Mosaico: dois retratos alternam com formas nos seis módulos, com nomes, datas e locais. Pausa/retorno por botão, suspensão fora da abertura e respeito ao movimento reduzido. Imagens decodificadas antes da troca; falha conserva o conteúdo anterior.
+
+Os arquivos desta versão ainda precisam de revisão final. A publicação anterior relatada por Taw não equivale à publicação desta rodada.
