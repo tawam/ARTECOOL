@@ -1,4 +1,4 @@
-import {createMosaic} from './mosaic.js?v=1.10';
+import {createMosaic} from './mosaic.js?v=1.11';
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 const narrow = matchMedia('(max-width: 760px)');
 const header = document.querySelector('.header');
@@ -112,21 +112,18 @@ document.querySelectorAll('[data-reveal-artist]').forEach(link=>link.addEventLis
   card.scrollIntoView({block:'center',behavior:reduced.matches?'instant':'smooth'});
 }));
 
-// The original modules persist. Scroll only changes their spatial relationships.
+// Scroll changes the scene; mosaic.js alone owns the block choreography.
 const story = document.querySelector('.morph-story');
 const stage = document.querySelector('.morph-stage');
 const mosaic = document.querySelector('.mosaic');
-const tiles = [...document.querySelectorAll('.tile')];
 const sceneButtons = [...document.querySelectorAll('[data-scene-target]')];
 const caption = document.querySelector('.scene-caption');
 const captions = ['A música encontra novas formas.', 'A arte abre outros caminhos.', 'A cidade também faz parte da obra.'];
-let range = 0, storyTop = 0, cell = 0, scheduled = false, activeScene = -1;
+let range = 0, storyTop = 0, scheduled = false, activeScene = -1;
 const clamp = (v, min = 0, max = 1) => Math.max(min, Math.min(max, v));
 function measure() {
   storyTop = story.getBoundingClientRect().top + scrollY;
   range = Math.max(0, story.offsetHeight - stage.offsetHeight);
-  // Layout width stays stable while the tile itself is transformed.
-  cell = tiles[0].offsetWidth;
   const heroLogo=stage.querySelector('.hero-logo');
   stage.style.setProperty('--hero-copy-top',`${heroLogo.offsetTop+heroLogo.offsetHeight+28}px`);
   schedule();
@@ -141,21 +138,11 @@ function setScene(scene) {
 function draw() {
   scheduled = false;
   if (reduced.matches || range < 20) {
-    tiles.forEach(tile => { tile.style.transform = ''; tile.style.borderRadius = ''; tile.querySelector('.tile-shape').style.transform=''; });
     setScene(0);
+    stage.style.setProperty('--story-progress','0');
     return;
   }
   const p = clamp((scrollY - storyTop + header.offsetHeight) / range);
-  const phase = p * Math.PI;
-  const spread = Math.sin(phase);
-  const offsets = [[-.14,.08,90],[.12,-.12,0],[.08,.06,-90],[-.12,-.12,180],[.08,.06,0],[.16,-.06,90]];
-  tiles.forEach((tile,i) => {
-    const [x,y,r] = offsets[i];
-    const horizontal = (x * spread + (i % 2 ? .03 : -.03) * p) * cell;
-    const vertical = y * spread * cell;
-    tile.style.transform = `translate3d(${horizontal.toFixed(2)}px,${vertical.toFixed(2)}px,0) scale(${(1 - .08*spread).toFixed(4)})`;
-    tile.querySelector('.tile-shape').style.transform=`rotate(${(r*p).toFixed(2)}deg)`;
-  });
   setScene(p < .33 ? 0 : p < .72 ? 1 : 2);
   stage.style.setProperty('--story-progress', p.toFixed(4));
 }

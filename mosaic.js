@@ -1,4 +1,4 @@
-// Individual translate/scale compose with the scroll transform in app.js.
+// One choreography owns the blocks: individual translate/scale, without rotation.
 export function shuffled(values, random=Math.random) {
   const bag=[...values];
   for(let i=bag.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[bag[i],bag[j]]=[bag[j],bag[i]];}

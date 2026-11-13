@@ -1,4 +1,4 @@
-# ARTECOOL — protótipo web v1.10
+# ARTECOOL — protótipo web v1.11
 
 Edição 2026. Site estático com HTML, CSS e JavaScript. Sirva esta pasta por HTTP para revisar as interações. Não é necessário instalar dependências ou executar build para hospedar. Recursos usam caminhos relativos e foram verificados sob o prefixo /artecool/.
 
@@ -22,6 +22,6 @@ index.html é a página; styles.css contém o sistema visual; app.js contém int
 
 Ordem Royalty Café → Intervenções urbanas → Ópera de Arame. Galeria alfabética com24 entradas e24 retratos; DJ Spena usa a foto do perfil oficial indicada por Taw. Babs tem destaque como DJ residente. Intervenções concentram os três artistas e os cinco bairros, sem inventar correspondências individuais. Lâminas redundantes removidas.
 
-Mosaico: fotos sorteadas a cada2,5s com fade suave; alternam no mesmo módulo ou em outro. Os seis blocos se reorganizam a cada quatro trocas, preservando nomes, datas e locais. A preferência de pausa é persistente; em movimento reduzido, o botão permite ativar somente os fades. Pausa/retorno por botão, suspensão fora da abertura e respeito ao movimento reduzido. Imagens decodificadas antes da troca; falha conserva o conteúdo anterior.
+Mosaico: fotos sorteadas a cada2,5s com fade suave; alternam no mesmo módulo ou em outro. Os seis blocos se reorganizam a cada quatro trocas, preservando nomes, datas e locais. A rotação/espalhamento antigos por rolagem foram removidos; a grade permanece orientada. A preferência de pausa é persistente; em movimento reduzido, o botão permite ativar somente os fades. Pausa/retorno por botão, suspensão fora da abertura e respeito ao movimento reduzido. Imagens decodificadas antes da troca; falha conserva o conteúdo anterior.
 
 A autorização de envio por Taw não resolve as informações ainda pendentes do evento.

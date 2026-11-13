@@ -21,7 +21,7 @@ if(root) {
     if(!allowed()||loading||failed)return;
     loading=true;
     try {
-      const {createForegroundScene}=await import('./foreground-scene.js?v=1.10');
+      const {createForegroundScene}=await import('./foreground-scene.js?v=1.11');
       if(!allowed())return;
       controller=createForegroundScene(root);root.scene3d=controller;controller.setEnabled(true);
     }catch(error){failed=true;root.dataset.state='fallback';root.dataset.enhanced='false';document.body.dataset.plasticActive='false';console.warn('Composição vetorial preservada; 3D indisponível.',error.message);}

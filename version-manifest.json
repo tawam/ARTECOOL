@@ -1,13 +1,13 @@
 {
-  "version": "1.10.0",
-  "release": "11_v1.10_ARTECOOL",
-  "createdAt": "2026-11-13T10:53:16.458Z",
+  "version": "1.11.0",
+  "release": "12_v1.11_ARTECOOL",
+  "createdAt": "2026-11-13T11:48:54.091Z",
   "status": "Prepared locally; publication tracked separately",
   "files": [
     {
       "file": "index.html",
       "bytes": 34495,
-      "sha256": "9bcb48b7ef990431a9dbcab633a130d8e59a5c3bd5090ea21aa12d7b28de6e4b"
+      "sha256": "d775d0a89eaa5157da341a7701118d75f440bd876caa058572ff7b0c8d15ec4c"
     },
     {
       "file": "styles.css",
@@ -16,13 +16,13 @@
     },
     {
       "file": "app.js",
-      "bytes": 9661,
-      "sha256": "3c5e938b5fa0c7bebab5d4e02be1f4f72534f2a9538d6b589e9efa566d801c69"
+      "bytes": 8829,
+      "sha256": "4ff1fce74466218be6bbec1d9fb1dbfb827fe49a6960efd6123466a37989e8d7"
     },
     {
       "file": "mosaic.js",
-      "bytes": 6706,
-      "sha256": "c0d77304a50a2c7fcc65318c8698683dc787eeac858de38aa980669da1157d3f"
+      "bytes": 6714,
+      "sha256": "3550bb42de27dbc0ddfb81f5875b8784741b4148e2fc7961f68752651c022477"
     },
     {
       "file": "plastic.css",
@@ -32,7 +32,7 @@
     {
       "file": "plastic-loader.js",
       "bytes": 2005,
-      "sha256": "daa664d9b931c435203e4480b8b164fd8cc22831a3ae44c5b156d9ce8baccc3b"
+      "sha256": "867ffa7ee8c2d923405e201a21f66e1e99232674c3a8a2a4769dca745415664f"
     },
     {
       "file": "plastic-scene.js",
@@ -51,13 +51,13 @@
     },
     {
       "file": "assets/artists/a-ka-mosaic.webp",
-      "bytes": 31496,
-      "sha256": "9ba47a765ee23967b3724f49ad9ef49be648b65d77521d6838eba3898f5bd9f1"
+      "bytes": 62170,
+      "sha256": "9514a36b6bc9bf91bc77f08584f8db25c329d438991951b30c5c66a57e83c724"
     },
     {
       "file": "assets/artists/a-ka.webp",
-      "bytes": 105744,
-      "sha256": "caf6516d33e1044425b278f0c8d9cb232486dc338d2bdb2fc71ba32bdd1bdceb"
+      "bytes": 310130,
+      "sha256": "70f9e2508d5d234c16f88a2ec5dfc891c3f40bcad8afa96b5968d151ff926fb9"
     },
     {
       "file": "assets/artists/amaiz-mosaic.webp",
@@ -206,13 +206,13 @@
     },
     {
       "file": "assets/artists/michael-devis-mosaic.webp",
-      "bytes": 11616,
-      "sha256": "bdc6525a61f050f9e813a3f29d6e3aa9cd5b0834eb48de70d9dcf17fd66d7eb8"
+      "bytes": 35678,
+      "sha256": "b9090f6235f842fd586ac92ad23b59ef7ae7081cee2524dae12ad5e37e242a80"
     },
     {
       "file": "assets/artists/michael-devis.webp",
-      "bytes": 21140,
-      "sha256": "74678b9ae950dd18ee964f57b0c06f8d0055a85fbd10088e193169d0ae17be30"
+      "bytes": 179282,
+      "sha256": "b0cd1a5bbb50ca5b226d9ba513c3bacc979576b52617b40b0415f2899d4a449f"
     },
     {
       "file": "assets/artists/nathy-picoli-mosaic.webp",
