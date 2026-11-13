@@ -121,7 +121,7 @@ export function createMosaic(root, story, reduced) {
     refresh();
   });
   document.addEventListener('visibilitychange',refresh);
-  reduced.addEventListener('change',()=>{settle?.();refresh();});
+  reduced.subscribe(()=>{settle?.();refresh();});
   const observer=new IntersectionObserver(entries=>{inView=entries[0].isIntersecting;refresh();},{threshold:0});
   observer.observe(story);
   root.dataset.exchanges='0';root.dataset.reorders='0';root.dataset.layout=positions.join(',');root.dataset.phase='idle';refresh();

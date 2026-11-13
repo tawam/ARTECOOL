@@ -32,18 +32,18 @@ export function createForegroundScene(root) {
   const pieces=[makePiece(0)],lastSculpt=[];
   const sections=route.map(([selector,from,to])=>({element:document.querySelector(selector),selector,from,to}));
   const footerSection={element:document.querySelector('.footer-top'),selector:'footer',from:[.5,.5,84],to:[.5,.5,84]};
-  const protectedElements=[...document.querySelectorAll('main h1,main h2,main h3,main h4,main p,main a,main button,main summary,main img,footer p,footer a,footer button,footer img,footer svg,.footer-bottom,.session-date,.session-time,.artist-photo,.axis-tabs,.artist-filters,.mosaic,.urban-composition,.urban-neighborhoods,.urban-trio,.resident-dj,.territory-links,.plastic-controls')].filter(el=>!el.classList.contains('sr-only'));
+  const protectedElements=[...document.querySelectorAll('main h1,main h2,main h3,main h4,main p,main li,main figcaption,main a,main button,main summary,main img,footer p,footer a,footer button,footer img,footer svg,.footer-bottom,.session-date,.session-time,.opera-date,.hero-meta,.artist-photo,.axis-tabs,.artist-filters,.mosaic,.urban-neighborhoods,.urban-trio,.resident-dj,.territory-links,.plastic-controls')].filter(el=>!el.classList.contains('sr-only'));
   const actor={x:0,y:0,size:0,vx:0,vy:0,vs:0,ax:0,ay:0,as:0};
   const guide={x:0,y:0,size:0};
   const companionPop=[{value:0,velocity:0},{value:0,velocity:0}];
   let target={x:0,y:0,size:0},width=1,height=1,header=0,landmark='',isSpotlight=false;
-  let active=false,enabled=true,paused=false,frame=0,last=0,frames=0,initialized=false,disposed=false;
+  let active=false,enabled=true,paused=false,frame=0,targetFrame=0,last=0,frames=0,initialized=false,disposed=false;
   let progress=0,goal=0,velocity=0,clock=0,frameCost=0,maxCost=0,lostContext=false,dockBlend=0;
   let obstacles=[],anchorId=-1,clearance=true,currentOverlap=0;
   const saved=new THREE.Color();let formPhase=0;
   const clearanceHalf=size=>mobile?size*.58+4:size*(isSpotlight?.98:.8)+12;
   function occupiedRects(element) {
-    if(!element.matches('h1,h2,h3,h4,p'))return [element.getBoundingClientRect()];
+    if(!element.matches('h1,h2,h3,h4,p,li,figcaption'))return [element.getBoundingClientRect()];
     const walker=document.createTreeWalker(element,NodeFilter.SHOW_TEXT),rects=[];
     while(walker.nextNode()){
       const node=walker.currentNode;if(!node.textContent.trim())continue;
@@ -136,7 +136,8 @@ export function createForegroundScene(root) {
       const shapePhase=THREE.MathUtils.lerp((phase+i*1.08)%3,0,dockBlend);
       const stretch=elastic*Math.cos(i*1.4)*(1-dockBlend),twist=velocity*.09*Math.cos(i)*(1-dockBlend);
       const sculptState=[shapePhase,stretch,twist];
-      if(!mobile||!lastSculpt[i]||sculptState.some((value,index)=>Math.abs(value-lastSculpt[i][index])>.001)){knead(mesh.geometry,shapePhase,stretch,twist);lastSculpt[i]=sculptState;}
+      // Rotation keeps running; rebuild geometry only when its shape changes.
+      if(!lastSculpt[i]||sculptState.some((value,index)=>Math.abs(value-lastSculpt[i][index])>.001)){knead(mesh.geometry,shapePhase,stretch,twist);lastSculpt[i]=sculptState;}
       const radius=actor.size*.5*(i===0?1:.39*reveal);mesh.scale.setScalar(radius);
       const offset=i===0?[0,0]:i===1?[-actor.size*.53*reveal,-actor.size*.46*reveal]:[actor.size*.5*reveal,actor.size*.46*reveal];
       mesh.position.set(actor.x-width/2+offset[0],height/2-actor.y-offset[1],i===0?0:-20);
@@ -153,7 +154,7 @@ export function createForegroundScene(root) {
     const nextClearance=currentOverlap<1;
     clearance=nextClearance;
   }
-  function stop(){cancelAnimationFrame(frame);frame=0;last=0;}
+  function stop(){cancelAnimationFrame(frame);cancelAnimationFrame(targetFrame);frame=0;targetFrame=0;last=0;}
   function draw(now) {
     frame=0;if(disposed||!enabled||!active||document.hidden||paused){last=0;return;}
     if(mobile&&last&&now-last<1000/30-1){frame=requestAnimationFrame(draw);return;}
@@ -182,9 +183,17 @@ export function createForegroundScene(root) {
     frame=requestAnimationFrame(draw);
   }
   function wake(){if(!frame&&enabled&&active&&!paused&&!document.hidden&&!disposed&&!lostContext)frame=requestAnimationFrame(draw);}
-  function onScroll(){selectTarget();if(active)wake();else stop();}
-  const resize=()=>{measure();wake();};
-  const visibility=()=>{if(document.hidden)stop();else wake();};
+  function updateTarget(){
+    targetFrame=0;
+    if(disposed||!enabled||paused||document.hidden||lostContext)return;
+    selectTarget();wake();
+  }
+  function onScroll(){
+    if(!targetFrame&&enabled&&!paused&&!document.hidden&&!disposed&&!lostContext)
+      targetFrame=requestAnimationFrame(updateTarget);
+  }
+  const resize=()=>{if(enabled&&!paused&&!document.hidden){measure();wake();}};
+  const visibility=()=>{if(document.hidden)stop();else if(enabled&&!paused){measure();wake();}};
   const lost=event=>{event.preventDefault();lostContext=true;stop();enabled=false;root.dataset.state='fallback';root.dataset.enhanced='false';document.body.dataset.plasticActive='false';root.dispatchEvent(new Event('plastic-unavailable'));};
   addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',resize,{passive:true});
   const contentObserver=new ResizeObserver(resize);contentObserver.observe(document.querySelector('main'));contentObserver.observe(document.querySelector('footer'));
@@ -192,7 +201,7 @@ export function createForegroundScene(root) {
   measure();progress=goal;Object.assign(actor,{x:target.x,y:target.y,size:target.size});Object.assign(guide,target);pose();
   return {
     setEnabled(value){if(lostContext)return;enabled=value;root.dataset.enhanced=String(value&&initialized);document.body.dataset.plasticActive=String(value&&initialized);if(value){measure();wake();}else stop();},
-    setPaused(value){paused=value;if(value)stop();else wake();},
+    setPaused(value){paused=value;if(value)stop();else if(enabled){measure();wake();}},
     setActive(value){active=value;root.dataset.visible=String(value);if(value)wake();else stop();},
     inspect(){return {device:mobile?"mobile":"desktop",frameCap:mobile?30:60,visiblePieces:pieces.filter(mesh=>mesh.visible).length,formPhase,dockBlend,timeline:"sections",frames,active,enabled,paused,pendingFrame:!!frame,progress,goal,velocity,clock,landmark,actor:{...actor},target:{...target},companions:companionPop.map(pop=>({...pop})),sizeRatio:.5,clearance,currentOverlap,anchorId,pixelRatio:renderer.getPixelRatio(),triangles:renderer.info.render.triangles,averageCpuMs:frames?frameCost/frames:0,maxCpuMs:maxCost,rotation:pieces[0].rotation.toArray().slice(0,3),colors:pieces.map(m=>m.material.color.getHexString()),sample:[...pieces[0].geometry.attributes.position.array.slice(150,159)],finite:pieces.every(m=>m.geometry.attributes.position.array.every(Number.isFinite)),canvas:{width:canvas.width,height:canvas.height}};},
     dispose(){disposed=true;stop();contentObserver.disconnect();removeEventListener('scroll',onScroll);removeEventListener('resize',resize);document.removeEventListener('visibilitychange',visibility);canvas.removeEventListener('webglcontextlost',lost);pieces.forEach(m=>{m.geometry.dispose();m.material.dispose();});renderer.dispose();}

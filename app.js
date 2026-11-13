@@ -1,5 +1,5 @@
-import {createMosaic} from './mosaic.js?v=1.11';
-const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+import {createMosaic} from './mosaic.js?v=1.12';
+import {reducedMotion as reduced} from './motion.js?v=1.12';
 const narrow = matchMedia('(max-width: 760px)');
 const header = document.querySelector('.header');
 const menu = document.querySelector('.menu-toggle');
@@ -86,9 +86,13 @@ function filterArtists(filter, announce = true) {
   artistFilters.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === filter)));
   more.hidden = expanded || filter !== 'all';
   if (announce) artistStatus.textContent = `${matching.filter(card => !card.hidden).length} retratos exibidos.`;
-  if (announce && !reduced.matches) for (const card of matching.filter(c=>!c.hidden)) {
+  const visible = matching.filter(card => !card.hidden);
+  // Read the next layout once before starting any animation writes.
+  const next = announce && !reduced.matches
+    ? new Map(visible.map(card => [card, card.getBoundingClientRect()])) : null;
+  if (next) for (const card of visible) {
     const before = previous.get(card);
-    const after = card.getBoundingClientRect();
+    const after = next.get(card);
     const x = before ? before.left - after.left : 0;
     const y = before ? before.top - after.top : 12;
     card.animate([{transform:`translate(${x}px,${y}px)`,opacity:before ? 1 : .4},{transform:'translate(0,0)',opacity:1}],{duration:700,easing:'cubic-bezier(.37,0,.63,1)'});
@@ -139,12 +143,10 @@ function draw() {
   scheduled = false;
   if (reduced.matches || range < 20) {
     setScene(0);
-    stage.style.setProperty('--story-progress','0');
     return;
   }
   const p = clamp((scrollY - storyTop + header.offsetHeight) / range);
   setScene(p < .33 ? 0 : p < .72 ? 1 : 2);
-  stage.style.setProperty('--story-progress', p.toFixed(4));
 }
 function schedule() { if (!scheduled) { scheduled = true; requestAnimationFrame(draw); } }
 function configureMotion() {
@@ -159,7 +161,7 @@ sceneButtons.forEach((button,i) => button.addEventListener('click', () => {
 }));
 addEventListener('scroll', schedule, {passive:true});
 addEventListener('resize', () => {measure();positionTabIndicator();}, {passive:true});
-reduced.addEventListener('change', configureMotion);
+reduced.subscribe(configureMotion);
 document.fonts.ready.then(() => {measure();positionTabIndicator();});
 configureMotion();
 createMosaic(mosaic,story,reduced);

@@ -1,6 +1,7 @@
+import {reducedMotion as reduced} from './motion.js?v=1.12';
 const root=document.querySelector('.plastic-overlay');
 if(root) {
-  const reduced=matchMedia('(prefers-reduced-motion: reduce)'),compact=matchMedia('(max-width: 760px)');
+  const compact=matchMedia('(max-width: 760px)');
   const buttons=[...document.querySelectorAll('[data-plastic-toggle]')];
   let controller,loading=false,failed=false,preference=null;
   try{preference=localStorage.getItem('artecool-3d');}catch{}
@@ -21,7 +22,7 @@ if(root) {
     if(!allowed()||loading||failed)return;
     loading=true;
     try {
-      const {createForegroundScene}=await import('./foreground-scene.js?v=1.11');
+      const {createForegroundScene}=await import('./foreground-scene.js?v=1.12');
       if(!allowed())return;
       controller=createForegroundScene(root);root.scene3d=controller;controller.setEnabled(true);
     }catch(error){failed=true;root.dataset.state='fallback';root.dataset.enhanced='false';document.body.dataset.plasticActive='false';console.warn('Composição vetorial preservada; 3D indisponível.',error.message);}
@@ -33,6 +34,6 @@ if(root) {
     configure();
   }));
   root.addEventListener('plastic-unavailable',()=>{failed=true;label();});
-  reduced.addEventListener('change',configure);
+  reduced.subscribe(configure);
   if(compact.matches&&'requestIdleCallback'in window){label();requestIdleCallback(configure,{timeout:1200});}else configure();
 }

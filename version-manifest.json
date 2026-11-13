@@ -1,28 +1,33 @@
 {
-  "version": "1.11.0",
-  "release": "12_v1.11_ARTECOOL",
-  "createdAt": "2026-11-13T11:48:54.091Z",
+  "version": "1.12.0",
+  "release": "13_v1.12_ARTECOOL",
+  "createdAt": "2026-11-13T12:29:13.688Z",
   "status": "Prepared locally; publication tracked separately",
   "files": [
     {
       "file": "index.html",
       "bytes": 34495,
-      "sha256": "d775d0a89eaa5157da341a7701118d75f440bd876caa058572ff7b0c8d15ec4c"
+      "sha256": "f08550af11963d15bf968024b6f4f725583b6e7fbf0c9ca5f9610c8c1398cee7"
     },
     {
       "file": "styles.css",
-      "bytes": 29926,
-      "sha256": "7855a9598b2681441960973569ee6459a26d536e2d93790669dce1c32f8a1b74"
+      "bytes": 29309,
+      "sha256": "9dedbaa4f47092fba059eb9102c8f7a0bd46478caea7736681b82cec41b322d2"
     },
     {
       "file": "app.js",
-      "bytes": 8829,
-      "sha256": "4ff1fce74466218be6bbec1d9fb1dbfb827fe49a6960efd6123466a37989e8d7"
+      "bytes": 8886,
+      "sha256": "afa72d8f70d950ce3cd00543dc1917aec669fd58bab2c7f8da9a0581e26a2e9b"
     },
     {
       "file": "mosaic.js",
-      "bytes": 6714,
-      "sha256": "3550bb42de27dbc0ddfb81f5875b8784741b4148e2fc7961f68752651c022477"
+      "bytes": 6698,
+      "sha256": "6bc23bddaab82c543fdc3b954e866fcd5fa6f121b510df61783cc65fecf66847"
+    },
+    {
+      "file": "motion.js",
+      "bytes": 974,
+      "sha256": "2ee6239b895c941b391da4df60ff417790481562b3be5c73833936b858897444"
     },
     {
       "file": "plastic.css",
@@ -31,8 +36,8 @@
     },
     {
       "file": "plastic-loader.js",
-      "bytes": 2005,
-      "sha256": "867ffa7ee8c2d923405e201a21f66e1e99232674c3a8a2a4769dca745415664f"
+      "bytes": 1995,
+      "sha256": "71141c388a0204d6d34ed8d19e87640d34f5a07d473ab51f97f8bc2ed84c9fef"
     },
     {
       "file": "plastic-scene.js",
@@ -41,8 +46,8 @@
     },
     {
       "file": "foreground-scene.js",
-      "bytes": 14942,
-      "sha256": "cf328d276810b4810a3d9eb1d3e5461e14ffe834d5893f15ad194672f31dd021"
+      "bytes": 15456,
+      "sha256": "504d1f6037a2d26a7e56fc285067290b9a1e8a7c9f9606cec095fbc81ae137e2"
     },
     {
       "file": "favicon.svg",
