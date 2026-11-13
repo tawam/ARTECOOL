@@ -124,5 +124,15 @@ export function createMosaic(root, story, reduced) {
   reduced.subscribe(()=>{settle?.();refresh();});
   const observer=new IntersectionObserver(entries=>{inView=entries[0].isIntersecting;refresh();},{threshold:0});
   observer.observe(story);
+  // Toolbar-height changes must not settle or restart the choreography.
+  // A real width change (orientation/desktop resize) commits the current layout
+  // before its cell units change, keeping every block inside the mosaic.
+  let observedWidth=root.getBoundingClientRect().width;
+  const widthObserver=new ResizeObserver(entries=>{
+    const width=entries[0].contentRect.width;
+    if(Math.abs(width-observedWidth)<.5)return;
+    observedWidth=width;settle?.();refresh();
+  });
+  widthObserver.observe(root);
   root.dataset.exchanges='0';root.dataset.reorders='0';root.dataset.layout=positions.join(',');root.dataset.phase='idle';refresh();
 }

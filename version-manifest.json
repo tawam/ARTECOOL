@@ -1,28 +1,28 @@
 {
-  "version": "1.14.0",
-  "release": "15_v1.14_ARTECOOL",
-  "createdAt": "2026-11-13T21:42:13.029Z",
+  "version": "1.15.0",
+  "release": "16_v1.15_ARTECOOL",
+  "createdAt": "2026-11-13T22:16:22.986Z",
   "status": "Prepared locally; publication tracked separately",
   "files": [
     {
       "file": "index.html",
       "bytes": 34496,
-      "sha256": "1737f560ea009ee953b5d1679a63624fe2f80306688fecb98c7c4b315838a09a"
+      "sha256": "3ce27ecd280027e6c0d20d2991cb7d5ffa4aaa0222d34a5690a9a49c26d141ff"
     },
     {
       "file": "styles.css",
-      "bytes": 30565,
-      "sha256": "804f34c28e7dfd1475f50ccb945a56ee3ca65c85d1498debaccd574cb976fa8d"
+      "bytes": 30702,
+      "sha256": "593a9ead66f24c06645f2fe14873efad6083db76606534598a5d4073d58641f3"
     },
     {
       "file": "app.js",
-      "bytes": 8752,
-      "sha256": "72c0be270bc8a75c4f7003ac845463101a9851b82fa869ca800ef474896861a8"
+      "bytes": 8603,
+      "sha256": "6e3ef4fc687ac919925d8d071d662fc763d7e8577e7f56c04274c5055d51436c"
     },
     {
       "file": "mosaic.js",
-      "bytes": 6698,
-      "sha256": "6bc23bddaab82c543fdc3b954e866fcd5fa6f121b510df61783cc65fecf66847"
+      "bytes": 7211,
+      "sha256": "b5be2822c568d2a2a5315ec457631164a445ec341ec6c5e74e6c0839b09d0144"
     },
     {
       "file": "motion.js",

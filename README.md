@@ -1,4 +1,4 @@
-# ARTECOOL — protótipo web v1.14
+# ARTECOOL — protótipo web v1.15
 
 Edição 2026. Site estático com HTML, CSS e JavaScript. Sirva esta pasta por HTTP para revisar as interações. Não é necessário instalar dependências ou executar build para hospedar. Recursos usam caminhos relativos e foram verificados sob o prefixo /artecool/.
 

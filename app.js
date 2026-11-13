@@ -1,4 +1,4 @@
-import {createMosaic} from './mosaic.js?v=1.12';
+import {createMosaic} from './mosaic.js?v=1.15';
 import {reducedMotion as reduced} from './motion.js?v=1.12';
 const narrow = matchMedia('(max-width: 760px)');
 const header = document.querySelector('.header');
@@ -128,8 +128,6 @@ const clamp = (v, min = 0, max = 1) => Math.max(min, Math.min(max, v));
 function measure() {
   storyTop = story.getBoundingClientRect().top + scrollY;
   range = Math.max(1, stage.offsetHeight - header.offsetHeight);
-  const heroLogo=stage.querySelector('.hero-logo');
-  stage.style.setProperty('--hero-copy-top',`${heroLogo.offsetTop+heroLogo.offsetHeight+28}px`);
   schedule();
 }
 function setScene(scene) {

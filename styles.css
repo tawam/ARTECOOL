@@ -251,23 +251,23 @@ a svg:not(.brand-shape),button > svg,.scroll-note > svg{width:24px;height:24px;f
   .header:not([data-enhanced]){height:auto;min-height:65px;flex-wrap:wrap;padding-top:20px}
   .header:not([data-enhanced]) nav{position:static;border:0px;box-shadow:none;flex-basis:100%;flex-flow:wrap;gap:20px;padding:0px 0px 15px}
   .header:not([data-enhanced]) nav a{font-size:12px}
-  .morph-stage{min-height:865px;height:calc(100svh - var(--header));max-height:1050px}
-  .motion-enabled .morph-stage{min-height:0px;height:calc(100svh - var(--header))}
-  .hero-meta{font-size:11px;top:23px}
-  .hero-logo{top:64px}
-  .hero-text{top:calc(95px + 12vw);width:calc(100% - 2*var(--pad))}
+  .morph-story{min-height:0px}
+  .morph-stage,.motion-enabled .morph-stage{display:grid;grid-template-columns:minmax(0px,1fr);grid-template-rows:auto auto auto auto auto;container-type:inline-size;position:relative;top:0px;min-height:0px;height:auto;max-height:none;padding:23px var(--pad) 20px}
+  .morph-stage .hero-meta{position:static;grid-row:1;font-size:11px;min-width:0px}
+  .morph-stage .hero-logo{position:static;grid-row:2;width:100%;height:auto;margin-top:24px}
+  .morph-stage .hero-text{position:static;grid-row:3;top:auto;width:auto;margin-top:28px;min-width:0px}
   .hero-text h1{font-size:clamp(28px,6vw,40px);line-height:1.2}
   .hero-text h1 br:nth-child(2){display:none}
   .hero-text h1 strong{display:block}
   .hero-text p{max-width:100%;font-size:13px;margin-top:14px;line-height:1.6}
   .hero-text .button{margin-top:18px;min-height:46px;padding:11px 15px;font-size:11px}
-  .mosaic{--cell:calc((100vw - 2*var(--pad))/3);right:var(--pad);top:auto;bottom:77px;width:calc(var(--cell)*3);height:calc(var(--cell)*2)}
-  .hero-bottom{bottom:20px;gap:10px;align-items:center;grid-template-columns:1fr}
+  .morph-stage .mosaic{--cell:calc(100cqw / 3);position:relative;grid-row:4;display:grid;grid-template-rows:calc(var(--cell)*2) auto;left:auto;right:auto;top:auto;bottom:auto;width:100%;height:auto;margin-top:28px;min-width:0px}
+  .morph-stage .hero-bottom{position:static;grid-row:5;left:auto;right:auto;bottom:auto;margin-top:12px;gap:10px;align-items:center;grid-template-columns:1fr;min-width:0px}
   .scene-caption{display:none}
   .scroll-note{font-size:11px;gap:5px}
   .scroll-note svg{width:14px}
   .scene-controls{gap:4px}
-  .scene-controls button{font-size:11px;padding:7px 10px}
+  .scene-controls button{min-height:44px;min-width:44px;font-size:11px;padding:7px 10px}
   .intro-grid{grid-template-columns:1fr;gap:28px}
   .intro-copy{max-width:600px}
   .intro-copy .lead{font-size:23px}
@@ -323,7 +323,7 @@ a svg:not(.brand-shape),button > svg,.scroll-note > svg{width:24px;height:24px;f
   .faq details > p{font-size:13px}
   .closing{padding-top:55px}
   .closing > p{font-size:clamp(30px,7.5vw,48px);max-width:80%}
-  .closing-shapes{width:30vw;right:calc(var(--pad)*-1);top:110px;opacity:0.7}
+  .closing-shapes{width:30vw;right:0px;top:110px;opacity:0.7}
   .closing > .button{font-size:11px;gap:15px;margin-top:25px}
   .closing > img{margin-top:80px}
   .footer-top{display:block;padding-top:28px;padding-bottom:28px}
@@ -332,14 +332,6 @@ a svg:not(.brand-shape),button > svg,.scroll-note > svg{width:24px;height:24px;f
   .institutional{padding:15px 8px;min-height:90px;object-fit:contain}
   .footer-bottom{flex-wrap:wrap;padding-top:20px;padding-bottom:20px;font-size:11px}
   .footer-bottom > span:nth-child(2){order:3;flex-basis:100%;text-align:left}
-}
-@media (max-width: 760px) and (max-height: 780px) {
-  .motion-enabled .morph-stage{min-height:780px;position:relative;top:0px}
-  .motion-enabled .morph-story{height:auto}
-  .hero-text h1{font-size:29px}
-  .mosaic{--cell:calc((100vw - 2*var(--pad))/3);bottom:77px}
-  .hero-text p{font-size:12px}
-  .hero-text{top:calc(92px + 11vw)}
 }
 .tile{background:none;overflow:visible;color:var(--paper)}
 .tile-a{--tile-bg:var(--wine);--tile-fg:var(--orange)}
@@ -355,10 +347,8 @@ a svg:not(.brand-shape),button > svg,.scroll-note > svg{width:24px;height:24px;f
 .tile-caption strong{display:block;font-size:12px;font-weight:700;line-height:1.3}
 .tile-caption > span{display:block;margin-top:3px;font-size:11px}
 .mosaic-notes{display:none}
-.hero-text{top:max(35%,var(--hero-copy-top,0px))}
 .hero-text h1{line-height:1.06}
 @media (max-width: 760px) {
-  .hero-text{top:max(calc(95px + 12vw),var(--hero-copy-top,0px))}
   .hero-text h1{line-height:1.06}
 }
 .hero-tools{display:flex;gap:12px;align-items:center;grid-column:2;justify-self:center}
@@ -401,6 +391,7 @@ a svg:not(.brand-shape),button > svg,.scroll-note > svg{width:24px;height:24px;f
 }
 @media (max-width: 1100px) {
   .hero-bottom > .scroll-note{display:none}
+  .scene-controls button{min-height:44px;min-width:44px}
   .urban-feature{gap:30px}
   .urban-trio{gap:10px}
   .urban-trio figcaption{font-size:11px}
@@ -408,9 +399,8 @@ a svg:not(.brand-shape),button > svg,.scroll-note > svg{width:24px;height:24px;f
 @media (max-width: 760px) {
   .hero-tools{width:100%;justify-content:space-between;gap:8px;grid-column:1;justify-self:stretch;flex-wrap:wrap}
   .mosaic-toggle{font-size:11px;padding:7px 10px}
-  .mosaic{bottom:142px}
   .tile-caption{display:none}
-  .mosaic-notes{position:absolute;top:calc(100% + 10px);left:0px;right:0px;display:grid;grid-template-columns:1fr 1fr;gap:16px;font-size:11px;line-height:1.4}
+  .mosaic-notes{position:static;grid-row:2;display:grid;grid-template-columns:minmax(0px,1fr) minmax(0px,1fr);gap:16px;align-content:start;block-size:calc(8.4em + 12px);padding-top:12px;min-width:0px;font-size:11px;line-height:1.4}
   .mosaic-note strong,.mosaic-note > span{display:block}
   .mosaic-note > span{margin-top:3px}
   .artist figcaption p{font-size:11px}
@@ -432,5 +422,5 @@ a svg:not(.brand-shape),button > svg,.scroll-note > svg{width:24px;height:24px;f
   .scene-controls{display:none}
 }
 @media (max-width: 340px) {
-  .mosaic{bottom:190px}
+  .header-logo img{width:128px}
 }
